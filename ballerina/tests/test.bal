@@ -170,7 +170,7 @@ isolated function testGetWorkspaces() returns error? {
 @test:Config {
     groups: ["live_tests", "mock_tests"]
 }
-isolated function testErrorHandling() returns error? {
+isolated function testErrorHandling() {
     decimal invalidSheetId = 999999999;
     anydata|error response = smartsheet->/sheets/[invalidSheetId]();
     test:assertTrue(response !is error);
