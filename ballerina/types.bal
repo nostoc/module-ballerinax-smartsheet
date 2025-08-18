@@ -107,7 +107,7 @@ public type DeleteAlternateEmailHeaders record {
 };
 
 # **Deprecated** Indicates whether the left nav toolbar is displayed. The default, or **true**, is to display the toolbar. If **false**, hides the toolbar
-# 
+#
 # # Deprecated
 @deprecated
 public type ReadOnlyFullShowToolbar boolean;
@@ -195,10 +195,10 @@ public type SightPublish record {
     # If true, a rich version of the dashboard is published with the ability to use shortcuts and widget interactions
     boolean readOnlyFullEnabled;
     # Indicates who can access the 'Read-Only Full' view of the published dashboard. Only returned in the response if **readOnlyFullEnabled = true**.
-    #   * **ALL** - available to anyone who has the link.
-    #   * **ORG** - available only to members of the dashboard owner's Smartsheet organization account.
-    #   * **SHARED** - available only to users shared to the item.
-    # 
+    # * **ALL** - available to anyone who has the link.
+    # * **ORG** - available only to members of the dashboard owner's Smartsheet organization account.
+    # * **SHARED** - available only to users shared to the item.
+    #
     # ---
     # If **readOnlyFullEnabled** is set to true in the request, but **readOnlyFullAccessibleBy** is not specified, the value of **readOnlyFullAccessibleBy** defaults to the organization-level 'Dashboard Publishing' setting (if the dashboard owner belongs to an organization account) or to **ALL** (if the dashboard owner does not belong to an organization account)
     "ALL"|"ORG" readOnlyFullAccessibleBy?;
@@ -261,7 +261,7 @@ public type FilteredEventsRequest record {
     # Default is false, which means ISO-8601 format
     boolean numericDates = false;
     # The latest time up to which events are included in the response. Events after this time are excluded. The `to` field requires using the `since` body field (above). This field is intended for use when backfilling data at client startup or recovery--don't use it for fine-grained date-based queries. Therefore, resolution is limited to the nearest hour. The value is interpreted as ISO-8601 format, unless `numericDates` is specified (see details about `numericDates` below).
-    # 
+    #
     # If `to` is a future time, the current time is used. If `to` equals the `since` time, an empty data value is returned. If `to` is before the `since` time, an error is returned
     string to?;
     # Maximum number of events to return as response to this call.
@@ -270,7 +270,7 @@ public type FilteredEventsRequest record {
     @constraint:Int {minValue: 1, maxValue: 10000}
     int maxCount = 1000;
     # The earliest time from which events are included in the response. Events before this time are excluded. This field is intended for use when backfilling data at client startup or recovery--don't use it for fine-grained date-based queries. Therefore, resolution is limited to the nearest hour. The value is interpreted as ISO-8601 format, unless `numericDates` is specified (see details about `numericDates` below).
-    # 
+    #
     # You must pass in a value for either `since` or `streamPosition` and never both
     string since?;
 };
@@ -434,10 +434,10 @@ public type SheetPublish record {
     # Indicates which view the user has set for a read-write, default view of the published sheet. Must be one of the listed enum values
     "CALENDAR"|"CARD"|"GRID" readWriteDefaultView?;
     # Indicates who can access the 'Read-Only Full' view of the published sheet:
-    #   * ALL - available to anyone who has the link.
-    #   * ORG - available only to members of the sheet owner's Smartsheet organization account.
-    #   * SHARED - available only to users shared to the item.
-    # 
+    # * ALL - available to anyone who has the link.
+    # * ORG - available only to members of the sheet owner's Smartsheet organization account.
+    # * SHARED - available only to users shared to the item.
+    #
     # Only returned in the response if **readOnlyFullEnabled = true**
     "ALL"|"ORG"|"SHARED" readOnlyFullAccessibleBy?;
     # If **true**,a rich version of the sheet is published with the ability to edit cells and manage attachments and discussions
@@ -447,7 +447,7 @@ public type SheetPublish record {
     # Indicates which view the user has set for a read-only, default view of the published sheet. Must be one of the listed enum values
     "CALENDAR"|"CARD"|"GRID" readOnlyFullDefaultView?;
     # **Deprecated** Indicates whether the left nav toolbar is displayed. The default, or **true**, is to display the toolbar. If **false**, hides the toolbar
-    # 
+    #
     # # Deprecated
     @deprecated
     boolean readWriteShowToolbar?;
@@ -466,15 +466,15 @@ public type SheetPublish record {
     # If **true**, a lightweight version of the sheet is published without row attachments and discussions
     boolean readOnlyLiteEnabled?;
     # **Deprecated** Indicates whether the left nav toolbar is displayed. The default, or **true**, is to display the toolbar. If **false**, hides the toolbar
-    # 
+    #
     # # Deprecated
     @deprecated
     boolean readOnlyFullShowToolbar?;
     # Indicates who can access the 'Edit by Anyone' view of the published sheet:
-    #   * ALL - available to anyone who has the link.
-    #   * ORG - available only to members of the sheet owner's Smartsheet organization account.
-    #   * SHARED - available only to users shared to the item.
-    # 
+    # * ALL - available to anyone who has the link.
+    # * ORG - available only to members of the sheet owner's Smartsheet organization account.
+    # * SHARED - available only to users shared to the item.
+    #
     # Only returned in the response if **readWriteEnabled = true**
     "ALL"|"ORG"|"SHARED" readWriteAccessibleBy?;
 };
@@ -521,7 +521,7 @@ public type FormDelete record {
 };
 
 # Updates User for the following attributes:
-# 
+#
 # * **admin** (required).
 # * **licensedSheetCreator** (required).
 # * **firstName** (optional).
@@ -645,8 +645,8 @@ public type GetSightQueries record {
     # Allows COMMENTER access for inputs and return values. For backwards-compatibility, VIEWER is the default. For example, to see whether a user has COMMENTER access for a sheet, use accessApiLevel=1
     decimal accessApiLevel = 0;
     # A comma-separated list of optional elements to include in the response:
-    #   * **objectValue** - when used in combination with a **level** query parameter, includes the email addresses for multi-contact data.
-    #   * **source** - the Source object for any Sight that was created from another Sight, if any
+    # * **objectValue** - when used in combination with a **level** query parameter, includes the email addresses for multi-contact data.
+    # * **source** - the Source object for any Sight that was created from another Sight, if any
     "objectValue"|"source" include?;
     # Specifies whether new functionality, such as multi-contact data is returned in a backwards-compatible, text format (**level=0**, default), multi-contact data (**level=2**), multi-picklist data (**level=3**), or Metric widget with sheet summary (**level=4**)
     int level = 0;
@@ -732,7 +732,7 @@ public type ProofsDeleteVersionHeaders record {
 };
 
 # **Deprecated** Indicates whether the left nav toolbar is displayed. The default, or **true**, is to display the toolbar. If **false**, hides the toolbar
-# 
+#
 # # Deprecated
 @deprecated
 public type ReadWriteShowToolbar boolean;
@@ -778,20 +778,20 @@ public type TimestampWriteable TimestampDateTime|TimestampNumber;
 # Object that describes how the the System Column type of "AUTO_NUMBER" is auto-generated
 public type AutoNumberFormat record {
     # The prefix. Can include the date tokens:
-    #   * {DD}
-    #   * {MM}
-    #   * {YY}
-    #   * {YYYY}
+    # * {DD}
+    # * {MM}
+    # * {YY}
+    # * {YYYY}
     string prefix?;
     # The starting number for the auto-id
     decimal startingNumber?;
     # Indicates zero-padding. Must be between 0 and 10 "0" (zero) characters
     string fill?;
     # The suffix. Can include the date tokens:
-    #   * {DD}
-    #   * {MM}
-    #   * {YY}
-    #   * {YYYY}
+    # * {DD}
+    # * {MM}
+    # * {YY}
+    # * {YYYY}
     string suffix?;
 };
 
@@ -819,7 +819,7 @@ public type DashboardAddWorkspaceShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user.
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the dashboard
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that the workspace was shared to. (Specific to share to group actions)
@@ -838,19 +838,19 @@ public type GetSheetQueries record {
     # Allows COMMENTER access for inputs and return values. For backwards-compatibility, VIEWER is the default. For example, to see whether a user has COMMENTER access for a sheet, use accessApiLevel=1
     decimal accessApiLevel = 0;
     # A comma-separated list of optional elements to include in the response:
-    #   * **attachments** - includes the metadata for sheet-level and row-level attachments. To include discussion attachments, both attachments and discussions must be present in the include list.
-    #   * **columnType** -includes columnType attribute in the row's cells indicating the type of the column the cell resides in.
-    #   * **crossSheetReferences** - includes the cross-sheet references
-    #   * **discussions** - includes sheet-level and row-level discussions. To include discussion attachments, both attachments and discussions must be present in the include list.
-    #   * **filters** - includes filteredOut attribute indicating if the row should be displayed or hidden according to the sheet's filters.
-    #   * **filterDefinitions** - includes type of filter, operators used, and criteria
-    #   * **format** -  includes column, row, cell, and summary fields formatting.
-    #   * **ganttConfig** - includes Gantt chart details.
-    #   * **objectValue** - when used in combination with a level query parameter, includes the email addresses for multi-contact data.
-    #   * **ownerInfo** - includes the owner's email address and the owner's user Id.
-    #   * **rowPermalink** - includes permalink attribute that represents a direct link to the row in the Smartsheet application.
-    #   * **source** - adds the Source object indicating which report, sheet  Sight (aka dashboard), or template the sheet was created from, if any.
-    #   * **writerInfo** - includes createdBy and modifiedBy attributes on the row or summary fields, indicating the row or summary field's creator, and last modifier
+    # * **attachments** - includes the metadata for sheet-level and row-level attachments. To include discussion attachments, both attachments and discussions must be present in the include list.
+    # * **columnType** -includes columnType attribute in the row's cells indicating the type of the column the cell resides in.
+    # * **crossSheetReferences** - includes the cross-sheet references
+    # * **discussions** - includes sheet-level and row-level discussions. To include discussion attachments, both attachments and discussions must be present in the include list.
+    # * **filters** - includes filteredOut attribute indicating if the row should be displayed or hidden according to the sheet's filters.
+    # * **filterDefinitions** - includes type of filter, operators used, and criteria
+    # * **format** -  includes column, row, cell, and summary fields formatting.
+    # * **ganttConfig** - includes Gantt chart details.
+    # * **objectValue** - when used in combination with a level query parameter, includes the email addresses for multi-contact data.
+    # * **ownerInfo** - includes the owner's email address and the owner's user Id.
+    # * **rowPermalink** - includes permalink attribute that represents a direct link to the row in the Smartsheet application.
+    # * **source** - adds the Source object indicating which report, sheet  Sight (aka dashboard), or template the sheet was created from, if any.
+    # * **writerInfo** - includes createdBy and modifiedBy attributes on the row or summary fields, indicating the row or summary field's creator, and last modifier
     "attachments"|"columnType"|"crossSheetReferences"|"discussions"|"filters"|"filterDefinitions"|"format"|"ganttConfig"|"objectValue"|"ownerInfo"|"rowPermalink"|"source"|"writerInfo" include?;
     # Specifies whether object data types, such as multi-contact data are returned in a backwards-compatible, text format in text/number columns.<br>  - Set `level=0` (default) to use text/number columns for multi-contact data and multi-picklist data.<br>  - Set `level=1` to use multiple-entry contact list columns for multi-contact data; multi-picklist data is returned in text/number columns.<br>  - Set `level=2` to use multiple-entry contact list columns for multi-contact data and use multiple-entry picklist columns for multi-picklist data
     int level = 0;
@@ -869,10 +869,10 @@ public type GetSheetQueries record {
     # A comma-separated list of row numbers on which to filter the rows included in the result. Non-existent row numbers are ignored
     string rowNumbers?;
     # A comma-separated list of element types to exclude from the response:
-    #   * **filteredOutRows** - excludes filtered-out rows from response payload if a sheet filter is applied; includes total number of filtered rows
-    #   * **linkInFromCellDetails** - excludes the following attributes from the **cell.linkInFromCell** object: `columnId`, `rowId`, `status`
-    #   * **linksOutToCellsDetails** - excludes the following attributes from the **cell.linksOutToCells** array elements: `columnId`, `rowId`, `status`
-    #   * **nonexistentCells** - excludes empty cells
+    # * **filteredOutRows** - excludes filtered-out rows from response payload if a sheet filter is applied; includes total number of filtered rows
+    # * **linkInFromCellDetails** - excludes the following attributes from the **cell.linkInFromCell** object: `columnId`, `rowId`, `status`
+    # * **linksOutToCellsDetails** - excludes the following attributes from the **cell.linksOutToCells** array elements: `columnId`, `rowId`, `status`
+    # * **nonexistentCells** - excludes empty cells
     "filteredOutRows"|"linkInFromCellDetails"|"linksOutToCellsDetails"|"nonexistentCells" exclude?;
     # Which page to return. Defaults to 1 if not specified. If you specify a value greater than the total number of pages, the last page of results is returned
     decimal page = 1;
@@ -939,7 +939,7 @@ public type TokensGetOrRefreshQueries record {
     # (Optional) Must use either this value or client_secret. SHA-256 hash of your app secret concatenated with a pipe and the authorization code. For example, hash={SHA_256(app_secret|code)}
     string hash?;
     # **Deprecated** If supplied, must match the redirect URI you registered for your app
-    # 
+    #
     # # Deprecated
     @http:Query {name: "redirect_url"}
     @deprecated
@@ -958,19 +958,19 @@ public type AutomationRule record {
     Timestamp createdAt?;
     # Machine-readable reason a rule is disabled:
     # * `APPROVAL_COLUMN_MISSING` This rule's approval status column has been deleted.
-    # 
+    #
     # * `APPROVAL_COLUMN_WRONG_TYPE` The approval column must be a dropdown column.
-    # 
+    #
     # * `AUTOMATION_NOT_ENABLED_FOR_ORG` To create or edit automated actions,
     # you need to upgrade your organization account to a Business or Enterprise plan.
-    # 
+    #
     # * `COLUMN_MISSING` A column referenced by this rule has been deleted.
-    # 
+    #
     # * `COLUMN_TYPE_INCOMPATIBLE` A column referenced by this rule has been changed to an incompatible column type.
-    # 
+    #
     # * `NO_POTENTIAL_RECIPIENTS` This rule has no recipients that will be able to receive
     # notifications based on this sheet's permission settings or this account's approved domain sharing list.
-    # 
+    #
     # * `NO_VALID_SELECTED_COLUMNS` All selected columns for this rule have been deleted
     "APPROVAL_COLUMN_MISSING"|"APPROVAL_COLUMN_WRONG_TYPE"|"AUTOMATION_NOT_ENABLED_FOR_ORG"|"COLUMN_MISSING"|"COLUMN_TYPE_INCOMPATIBLE"|"NO_POTENTIAL_RECIPIENTS"|"NO_VALID_SELECTED_COLUMNS" disabledReason?;
     # `User` object containing `name` and `email` of the creator of this rule
@@ -1136,8 +1136,8 @@ public type UserDownloadSheetAccessReport record {
 # Represents the Queries record for the operation: row-discussions-list
 public type RowDiscussionsListQueries record {
     # A comma-separated list of optional elements to include in the response:
-    #   * **attachments** - effective only if comments is present, otherwise ignored
-    #   * **comments** - include all comments in threads
+    # * **attachments** - effective only if comments is present, otherwise ignored
+    # * **comments** - include all comments in threads
     "attachments"|"comments" include?;
     # The maximum number of items to return per page. Unless otherwise stated for a specific endpoint, defaults to 100. If only page is specified, defaults to a page size of 100. For reports, the default is 100 rows. If you need larger sets of data from your report, returns a maximum of 10,000 rows per request
     decimal pageSize = 100;
@@ -1328,10 +1328,10 @@ public type ProofDetailListData record {
 # Represents the Queries record for the operation: copy-rows
 public type CopyRowsQueries record {
     # A comma-separated list of row elements to copy in addition to the cell data:
-    #   * **all** - specify a value of **all** to include everything (attachments, children, and discussions).
-    #   * **attachments**
-    #   * **children** -  if specified, any child rows of the rows specified in the request are also copied to the destination sheet, and parent-child relationships amongst rows are preserved within the destination sheet; if not specified, only the rows specified in the request are copied.
-    #   * **discussions**
+    # * **all** - specify a value of **all** to include everything (attachments, children, and discussions).
+    # * **attachments**
+    # * **children** -  if specified, any child rows of the rows specified in the request are also copied to the destination sheet, and parent-child relationships amongst rows are preserved within the destination sheet; if not specified, only the rows specified in the request are copied.
+    # * **discussions**
     "all"|"attachments"|"children"|"discussions" include?;
     # **true** or **false**: default is **false**. If set to **true**, specifying row Ids that do not exist within the source sheet does not cause an error response. If omitted or set to **false**, specifying row Ids that do not exist within the source sheet causes an error response (and no rows are copied)
     boolean ignoreRowsNotFound = false;
@@ -1415,7 +1415,7 @@ public type SheetAddShareMemberAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the user. 
-    # 
+    #
     # Note that this access level represents the access level that has been granted to the user via group membership; it is not the user's effective access level for the sheet
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group the user was added to
@@ -1494,11 +1494,11 @@ public type FolderContentItemData record {
 # Represents the Queries record for the operation: get-folder
 public type GetFolderQueries record {
     # A comma-separated list of optional elements to include in the response:
-    #   * **source** - adds the Source object indicating which object the folder was created from, if any
-    #   * **distributionLink**
-    #   * **ownerInfo** Returns the user with owner permissions, or the user with admin permissions if there is no owner assigned. If no owner or admins are assigned, the Plan Asset Admin is returned. If no Plan Asset Admin is assigned, the System Admin is returned.
-    #   * **sheetVersion**
-    #   * **permalinks**
+    # * **source** - adds the Source object indicating which object the folder was created from, if any
+    # * **distributionLink**
+    # * **ownerInfo** Returns the user with owner permissions, or the user with admin permissions if there is no owner assigned. If no owner or admins are assigned, the Plan Asset Admin is returned. If no Plan Asset Admin is assigned, the System Admin is returned.
+    # * **sheetVersion**
+    # * **permalinks**
     "source"|"distributionLink"|"ownerInfo"|"sheetVersion" include?;
 };
 
@@ -1651,13 +1651,13 @@ public type CrossSheetReference record {
     # Cross-sheet reference Id, guaranteed unique within referencing sheet
     decimal id?;
     # Status of request:
-    #  * 'BLOCKED' - A reference is downstream of a circular issue.
-    #  * 'BROKEN' - The data source location (column, row or sheet) was deleted.
-    #  * 'CIRCULAR' - The formula reference is self referencing and cannot be resolved.
-    #  * 'DISABLED' - Updating the reference is temporarily disabled due to maintenance.
-    #  * 'INVALID/UNKNOWN' - The reference is new and had not been validated.
-    #  * 'NOT_SHARED' - No common shared users.
-    #  * 'OK' - The reference is in a good state
+    # * 'BLOCKED' - A reference is downstream of a circular issue.
+    # * 'BROKEN' - The data source location (column, row or sheet) was deleted.
+    # * 'CIRCULAR' - The formula reference is self referencing and cannot be resolved.
+    # * 'DISABLED' - Updating the reference is temporarily disabled due to maintenance.
+    # * 'INVALID/UNKNOWN' - The reference is new and had not been validated.
+    # * 'NOT_SHARED' - No common shared users.
+    # * 'OK' - The reference is in a good state
     "BLOCKED"|"BROKEN"|"CIRCULAR"|"DISABLED"|"INVALID/UNKNOWN"|"NOT-SHARED"|"OK" status?;
 };
 
@@ -1711,7 +1711,7 @@ public type Row record {
 
 public type ReportPublish record {
     # URL for 'Read-Only Full' view of the published report.
-    # 
+    #
     # Only returned in a response if **readOnlyFullEnabled** = **true**
     string readOnlyFullUrl?;
     # (Required) If **true**, a rich version of the report is published with the ability to download row
@@ -1721,12 +1721,12 @@ public type ReportPublish record {
     # * If **ALL**, it is available to anyone who has the link.
     # * If **ORG**, it is available only to members of the report owner's Smartsheet organization account.
     # * If **SHARED**, it is available only to users shared to the item.
-    # 
+    #
     # Only returned in a response if **readOnlyFullEnabled** = **true**
     string readOnlyFullAccessibleBy?;
     # **Deprecated** Indicates whether the left nav toolbar is displayed. The default, or **true**, is to display the toolbar.
     # If **false**, hides the toolbar
-    # 
+    #
     # # Deprecated
     @deprecated
     boolean readOnlyFullShowToolbar?;
@@ -1851,7 +1851,7 @@ public type SheetAddShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user. 
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the sheet
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that was added to the sheet's sharing list. (Specific to share to group actions)
@@ -2009,7 +2009,7 @@ public type Sheet record {
     # URL that represents a direct link to the sheet in Smartsheet
     string permalink?;
     # **Deprecated** Returned only if the user has marked this sheet as a favorite in their Home tab (value = **true**)
-    # 
+    #
     # # Deprecated
     @deprecated
     boolean favorite?;
@@ -2413,17 +2413,17 @@ public type CreateWorkspaceQueries record {
     # Allows COMMENTER access for inputs and return values. For backwards-compatibility, VIEWER is the default. For example, to see whether a user has COMMENTER access for a sheet, use accessApiLevel=1
     decimal accessApiLevel = 0;
     # A comma-separated list of elements to include:
-    #   * **all**
-    #   * **attachments**
-    #   * **brand**
-    #   * **cellLinks** - includes cross-sheet references
-    #   * **data** - includes formatting
-    #   * **discussions** - includes comments
-    #   * **filters**
-    #   * **forms**
-    #   * **ruleRecipients**
-    #   * **rules**
-    #   * **shares**
+    # * **all**
+    # * **attachments**
+    # * **brand**
+    # * **cellLinks** - includes cross-sheet references
+    # * **data** - includes formatting
+    # * **discussions** - includes comments
+    # * **filters**
+    # * **forms**
+    # * **ruleRecipients**
+    # * **rules**
+    # * **shares**
     # NOTE: Cell history is not copied, regardless of which include parameter values are specified
     "all"|"attachments"|"brand"|"cellLinks"|"data"|"discussions"|"filters"|"forms"|"ruleRecipients"|"rules"|"shares" include?;
     # A comma-separated list of references to NOT re-map for the newly created folder
@@ -2491,15 +2491,15 @@ public type DashboardDelete record {
 # Represents the Queries record for the operation: copy-folder
 public type CopyFolderQueries record {
     # A comma-separated list of elements to copy:
-    #   * **attachments**
-    #   * **cellLinks** - includes cross-sheet references
-    #   * **data** - includes formatting
-    #   * **discussions** - includes comments
-    #   * **filters**
-    #   * **forms**
-    #   * **ruleRecipients** -- includes notification recipients, must also include rules when using this attribute
-    #   * **rules** -- includes notifications and workflow rules
-    #   * **shares** |
+    # * **attachments**
+    # * **cellLinks** - includes cross-sheet references
+    # * **data** - includes formatting
+    # * **discussions** - includes comments
+    # * **filters**
+    # * **forms**
+    # * **ruleRecipients** -- includes notification recipients, must also include rules when using this attribute
+    # * **rules** -- includes notifications and workflow rules
+    # * **shares** |
     # NOTE: Cell history is not copied, regardless of which include parameter values are specified
     "attachments"|"cellLinks"|"data"|"discussions"|"filters"|"forms"|"ruleRecipients"|"rules"|"shares" include?;
     # A comma-separated list of references to NOT re-map for the newly created folder
@@ -2592,14 +2592,14 @@ public type GetReportQueries record {
     # Allows COMMENTER access for inputs and return values. For backwards-compatibility, VIEWER is the default. For example, to see whether a user has COMMENTER access for a sheet, use accessApiLevel=1
     decimal accessApiLevel = 0;
     # A comma-separated list of optional elements to include in the response:
-    #   * **attachments**
-    #   * **discussions**
-    #   * **proofs**
-    #   * **format**
-    #   * **objectValue** - when used in combination with a level query parameter, includes the email addresses for multi-contact data
-    #   * **scope** - adds the report's scope to the response
-    #   * **source** - adds the Source object indicating which report the report was created from, if any
-    #   * **sourceSheets**
+    # * **attachments**
+    # * **discussions**
+    # * **proofs**
+    # * **format**
+    # * **objectValue** - when used in combination with a level query parameter, includes the email addresses for multi-contact data
+    # * **scope** - adds the report's scope to the response
+    # * **source** - adds the Source object indicating which report the report was created from, if any
+    # * **sourceSheets**
     "attachments"|"discussions"|"proofs"|"format"|"objectValue"|"scope"|"source"|"sourceSheets" include?;
     # specifies whether new functionality, such as multi-contact data is returned in a backwards-compatible, text format (level=0, default), multi-contact data (level=1), or multi-picklist data (level=3)
     int level = 0;
@@ -2650,7 +2650,7 @@ public type ColumnCreateData record {
 
 public type ContainerDestinationForMove record {
     # Type of destination container.
-    # 
+    #
     # The `"home"` enum is **Deprecated** since March 25, 2025, and will be removed
     "folder"|"home"|"workspace"? destinationType?;
     # The ID of the destination container
@@ -2726,7 +2726,7 @@ public type UserAddToAccountAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Comma-delimited list of user types, e.g. `SYSTEM_ADMIN`, `LICENSED_USER`, `GROUP_ADMIN`, `RESOURCE_VIEWER`, `JIRA_ADMIN`, `JIRA_USER`, `SALESFORCE_ADMIN`, `SALESFORCE_USER`. 
-    # 
+    #
     # The full list of available user types can be seen <a href="https://help.smartsheet.com/learning-track/shared-users/user-types-and-permissions" target="_blank" rel="noopener noreferrer">here</a>. Please notice that user types Unlicensed User and Free Collaborator are not applicable for this event
     string userTypes?;
 };
@@ -2753,10 +2753,10 @@ public type ColumnObjectAttributes record {
     string title?;
     "ABSTRACT_DATETIME"|"CHECKBOX"|"CONTACT_LIST"|"DATE"|"DATETIME"|"DURATION"|"MULTI_CONTACT_LIST"|"MULTI_PICKLIST"|"PICKLIST"|"PREDECESSOR"|"TEXT_NUMBER" 'type?;
     # Read only. The level of the column type. Each element in the array is set to one of the following values:
-    #  * **0**: TEXT_NUMBER, CONTACT_LIST, or PICKLIST
-    #  * **1**: MULTI_CONTACT_LIST
-    #  * **2**: MULTI_PICKLIST
-    # 
+    # * **0**: TEXT_NUMBER, CONTACT_LIST, or PICKLIST
+    # * **1**: MULTI_CONTACT_LIST
+    # * **2**: MULTI_PICKLIST
+    #
     # See [Versioning and changes](/api/smartsheet/guides/basics/versioning-and-changes)
     decimal version?;
     # Object that describes how the the System Column type of "AUTO_NUMBER" is auto-generated
@@ -2780,7 +2780,7 @@ public type SheetAddWorkspaceShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user. 
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the sheet
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that the workspace was shared to. (Specific to share to group actions)
@@ -2869,17 +2869,17 @@ public type UpdateWebhookRequest record {
 # Represents the Queries record for the operation: copy-workspace
 public type CopyWorkspaceQueries record {
     # A comma-separated list of elements to include:
-    #   * **all**
-    #   * **attachments**
-    #   * **brand**
-    #   * **cellLinks** - includes cross-sheet references
-    #   * **data** - includes formatting
-    #   * **discussions** - includes comments
-    #   * **filters**
-    #   * **forms**
-    #   * **ruleRecipients**
-    #   * **rules**
-    #   * **shares**
+    # * **all**
+    # * **attachments**
+    # * **brand**
+    # * **cellLinks** - includes cross-sheet references
+    # * **data** - includes formatting
+    # * **discussions** - includes comments
+    # * **filters**
+    # * **forms**
+    # * **ruleRecipients**
+    # * **rules**
+    # * **shares**
     # NOTE: Cell history is not copied, regardless of which include parameter values are specified
     "all"|"attachments"|"brand"|"cellLinks"|"data"|"discussions"|"filters"|"forms"|"ruleRecipients"|"rules"|"shares" include?;
     # A comma-separated list of references to NOT re-map for the newly created folder
@@ -2932,11 +2932,11 @@ public type DashboardAddPublish record {
 # Represents the Queries record for the operation: list-home-contents
 public type ListHomeContentsQueries record {
     # A comma-separated list of optional elements to include in the response:
-    #   * **source** - adds the Source object indicating which object the folder was created from, if any
-    #   * **distributionLink**
-    #   * **ownerInfo** Returns the user with owner permissions, or the user with admin permissions if there is no owner assigned. If no owner or admins are assigned, the Plan Asset Admin is returned. If no Plan Asset Admin is assigned, the System Admin is returned.
-    #   * **sheetVersion**
-    #   * **permalinks**
+    # * **source** - adds the Source object indicating which object the folder was created from, if any
+    # * **distributionLink**
+    # * **ownerInfo** Returns the user with owner permissions, or the user with admin permissions if there is no owner assigned. If no owner or admins are assigned, the Plan Asset Admin is returned. If no Plan Asset Admin is assigned, the System Admin is returned.
+    # * **sheetVersion**
+    # * **permalinks**
     "source"|"distributionLink"|"ownerInfo"|"sheetVersion" include?;
 };
 
@@ -3114,15 +3114,15 @@ public type Share record {
     # in a request, but it is never present in a response
     boolean ccMe?;
     # The scope of this share. One of the following values:
-    #   * **ITEM**: an item-level share (that is, the specific object to which the share applies is shared with
-    #     the user or group).
-    #   * **WORKSPACE**: a workspace-level share (that is, the workspace that contains the object to which the
-    #     share applies is shared with the user or group)
+    # * **ITEM**: an item-level share (that is, the specific object to which the share applies is shared with
+    # the user or group).
+    # * **WORKSPACE**: a workspace-level share (that is, the workspace that contains the object to which the
+    # share applies is shared with the user or group)
     string scope?;
     # If a user share and user is also a contact, the user's full name. If a group share, the group's name
     string name?;
     # Share Id.
-    # 
+    #
     # **NOTE**: unlike other Smartsheet object Ids, this Id is an alphanumeric string
     string id?;
     # User's primary email address for user shares; null for group shares
@@ -3263,10 +3263,10 @@ public type ResetSharedSecretHeaders record {
 };
 
 # Indicates who can access the 'Edit by Anyone' view of the published sheet:
-#   * ALL - available to anyone who has the link.
-#   * ORG - available only to members of the sheet owner's Smartsheet organization account.
-#   * SHARED - available only to users shared to the item.
-# 
+# * ALL - available to anyone who has the link.
+# * ORG - available only to members of the sheet owner's Smartsheet organization account.
+# * SHARED - available only to users shared to the item.
+#
 # Only returned in the response if **readWriteEnabled = true**
 public type ReadWriteAccessibleBy "ALL"|"ORG"|"SHARED";
 
@@ -3278,8 +3278,8 @@ public type GroupMembersListResponse record {
 # Represents the Queries record for the operation: proofs-listDiscussions
 public type ProofsListDiscussionsQueries record {
     # A comma-separated list of optional elements to include in the response:
-    #   * **attachments** - effective only if comments is present, otherwise ignored
-    #   * **comments** - include all comments in threads
+    # * **attachments** - effective only if comments is present, otherwise ignored
+    # * **comments** - include all comments in threads
     "attachments"|"comments" include?;
     # The maximum number of items to return per page. Unless otherwise stated for a specific endpoint, defaults to 100. If only page is specified, defaults to a page size of 100. For reports, the default is 100 rows. If you need larger sets of data from your report, returns a maximum of 10,000 rows per request
     decimal pageSize = 100;
@@ -3303,7 +3303,7 @@ public type DashboardAddShareMemberAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user. 
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the dashboard
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that was added to the dashboard's sharing list. (Specific to share to group actions)
@@ -3362,7 +3362,7 @@ public type ReportAddWorkspaceShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user. 
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the report
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that the workspace was shared to. (Specific to share to group actions)
@@ -3511,7 +3511,7 @@ public type ReportAddShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user. 
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the report
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that was added to the report's sharing list. (Specific to share to group actions)
@@ -3710,26 +3710,26 @@ public type ListEventsQueries record {
     decimal managedPlanId?;
     # Indicates next set of events to return. Use value of
     # `nextStreamPosition` returned from the previous call.
-    # 
+    #
     # This parameter is required if `since` is not used
     string streamPosition?;
     # If `true`, dates are accepted and returned in Unix epoch time
     # (milliseconds since midnight on January 1, 1970 in UTC time).
-    # 
+    #
     # Default is `false`, which means ISO-8601 format
     boolean numericDates = false;
     # The latest time up to which events are included in the response. Events after this time are excluded.
-    # 
+    #
     # This parameter requires using the `since` parameter. 
-    # 
+    #
     # The date-time value is resolved to the nearest hour. The value is interpreted as ISO-8601 format, unless `numericDates` is specified (see details about `numericDates` below).
-    # 
+    #
     # Logic:
-    # 
+    #
     # - If `to` is a future time, the current time is used.
     # - If `to` equals the `since` time, an empty data value is returned.
     # - If `to` is before the `since` time, a validation error is returned.
-    # 
+    #
     # > **IMPORTANT:** This parameter is intended for use when backfilling data at client startup or recovery--don't use it for fine-grained, date-based queries
     string to?;
     # Maximum number of events to return as response to this call.
@@ -3738,13 +3738,13 @@ public type ListEventsQueries record {
     @constraint:Int {minValue: 1, maxValue: 10000}
     int:Signed32 maxCount = 1000;
     # The earliest time from which events are included in the response. Events before this time are excluded.
-    # 
+    #
     # This parameter is required if `streamPosition` is not used.
-    # 
+    #
     # The date-time value is resolved to the nearest hour. The value is interpreted as ISO-8601 format, unless `numericDates` is specified (see details about `numericDates` below).
-    # 
+    #
     # > **IMPORTANT:** To keep event responses manageable and prevent timeouts, also specify the `to` query parameter.
-    # 
+    #
     # > **IMPORTANT:** This parameter is intended for use when backfilling data at client startup or recovery--don't use it for fine-grained, date-based queries
     string since?;
 };
@@ -3939,10 +3939,10 @@ public type SheetPublishRequest record {
     # If **true**, a rich version of the sheet is published with the ability to download row attachments and discussions
     ReadOnlyFullEnabled readOnlyFullEnabled?;
     # Indicates who can access the 'Read-Only Full' view of the published sheet:
-    #   * ALL - available to anyone who has the link.
-    #   * ORG - available only to members of the sheet owner's Smartsheet organization account.
-    #   * SHARED - available only to users shared to the item.
-    # 
+    # * ALL - available to anyone who has the link.
+    # * ORG - available only to members of the sheet owner's Smartsheet organization account.
+    # * SHARED - available only to users shared to the item.
+    #
     # Only returned in the response if **readOnlyFullEnabled = true**
     ReadOnlyFullAccessibleBy readOnlyFullAccessibleBy?;
     # If **true**, a lightweight version of the sheet is published without row attachments and discussions
@@ -3954,10 +3954,10 @@ public type SheetPublishRequest record {
     # Indicates which view the user has set for a read-only, default view of the published sheet. Must be one of the listed enum values
     ReadOnlyFullDefaultView readOnlyFullDefaultView?;
     # Indicates who can access the 'Edit by Anyone' view of the published sheet:
-    #   * ALL - available to anyone who has the link.
-    #   * ORG - available only to members of the sheet owner's Smartsheet organization account.
-    #   * SHARED - available only to users shared to the item.
-    # 
+    # * ALL - available to anyone who has the link.
+    # * ORG - available only to members of the sheet owner's Smartsheet organization account.
+    # * SHARED - available only to users shared to the item.
+    #
     # Only returned in the response if **readWriteEnabled = true**
     ReadWriteAccessibleBy readWriteAccessibleBy?;
     # **Deprecated** Indicates whether the left nav toolbar is displayed. The default, or **true**, is to display the toolbar. If **false**, hides the toolbar
@@ -4296,21 +4296,21 @@ public type UpdateProofStatusRequest record {
 
 public type Schedule record {
     # The day within the month.
-    # 
+    #
     # Valid range is 1 to 28.
-    # 
+    #
     # This attribute is applicable to the following schedule type:
-    #  * **MONTHLY**
-    # 
+    # * **MONTHLY**
+    #
     # For more details, refer to the Table of Schedule Object’s Attributes below
     @constraint:Number {minValue: 1, maxValue: 31}
     decimal dayOfMonth?;
     # A string array consists of one or more of the following values:
     # * **DAY**, **WEEKDAY**, **WEEKEND**
     # * **SUNDAY**, **MONDAY**, **TUESDAY**, **WEDNESDAY**, **THURSDAY**, **FRIDAY**, **SATURDAY**
-    # 
+    #
     # The subset of values applicable to the schedule type are as followed:
-    # 
+    #
     # | Value         | Daily schedule | Weekly schedule | Monthly schedule |
     # |---------------|----------------|-----------------|------------------|
     # | **DAY**       |                |                 |       **✓**      |
@@ -4323,24 +4323,24 @@ public type Schedule record {
     # | **THURSDAY**  |                |      **✓**      |       **✓**      |
     # | **FRIDAY**    |                |      **✓**      |       **✓**      |
     # | **SATURDAY**  |                |      **✓**      |       **✓**      |
-    # 
+    #
     # For more details, refer to the Table of Schedule Object’s Attributes below
     ("DAY"|"WEEKDAY"|"WEEKEND"|"SUNDAY"|"MONDAY"|"TUESDAY"|"WEDNESDAY"|"THURSDAY"|"FRIDAY"|"SATURDAY")[] dayDescriptors?;
     # Must be one of the following values:
-    #   * **FIRST** or **LAST**
-    #   * **SECOND**, **THIRD**, or **FOURTH**
-    # 
+    # * **FIRST** or **LAST**
+    # * **SECOND**, **THIRD**, or **FOURTH**
+    #
     # This attribute is applicable to the following schedule type:
-    #   * **MONTHLY**
-    # 
-    #   For more details, refer to the Table of Schedule Object’s Attributes below
+    # * **MONTHLY**
+    #
+    # For more details, refer to the Table of Schedule Object’s Attributes below
     "FIRST"|"LAST"|"SECOND"|"THIRD"|"FOURTH" dayOrdinal?;
     Timestamp lastSentAt?;
     # Frequency on which the request is delivered. The unit is a function of the **type** attribute. For example,
     # for **MONTHLY** schedule, **repeatEvery=1** means every month.
-    # 
+    #
     # Valid range is 1 to 99.
-    # 
+    #
     # This attribute is applicable to the following schedule types: **DAILY**, **WEEKLY**, **MONTHLY**, or **YEARLY**.
     # For more details, refer to the Table of Schedule Object’s Attributes below
     @constraint:Number {minValue: 1, maxValue: 99}
@@ -4370,7 +4370,7 @@ public type ListCrosssheetReferencesQueries record {
 # Represents the Queries record for the operation: list-users
 public type ListUsersQueries record {
     # If the API request is submitted by a system administrator and when specified with a value of 'lastLogin', response includes a lastLogin attribute for each user that indicates the Last login date/time of the user.
-    # 
+    #
     # **Note** If the number of users included in the response is > 100, you must paginate your query to see the lastLogin attribute. For large responses, the lastLogin attribute is never included
     string include?;
     # You can optionally choose to receive and send dates/times in numeric format, as milliseconds since the UNIX epoch (midnight on January 1, 1970 in UTC time), using the query string parameter numericDates with a value of true. This query parameter works for any API request
@@ -4507,7 +4507,7 @@ public type GroupCreate1 record {
     # An array of GroupMemberAdd objects, each specifying the email address of a user to be added to a group
     GroupMembersAddArray members?;
     # **name** (required)
-    # 
+    #
     # Must be unique within the organization account
     string name?;
     # **description** (optional)
@@ -4697,15 +4697,15 @@ public type RemoveUserHeaders record {
 # Represents the Queries record for the operation: copy-sheet
 public type CopySheetQueries record {
     # A comma-separated list of elements to copy:
-    #   * **attachments**
-    #   * **cellLinks** - includes cross-sheet references
-    #   * **data** - includes formatting
-    #   * **discussions** - includes comments
-    #   * **filters**
-    #   * **forms**
-    #   * **ruleRecipients** -- includes notification recipients, must also include rules when using this attribute
-    #   * **rules** -- includes notifications and workflow rules
-    #   * **shares** |
+    # * **attachments**
+    # * **cellLinks** - includes cross-sheet references
+    # * **data** - includes formatting
+    # * **discussions** - includes comments
+    # * **filters**
+    # * **forms**
+    # * **ruleRecipients** -- includes notification recipients, must also include rules when using this attribute
+    # * **rules** -- includes notifications and workflow rules
+    # * **shares** |
     # NOTE: Cell history is not copied, regardless of which include parameter values are specified
     "attachments"|"cellLinks"|"data"|"discussions"|"filters"|"forms"|"ruleRecipients"|"rules"|"shares" include?;
     # When specified with a value of **sheetHyperlinks**, excludes this category from the response
@@ -4799,7 +4799,7 @@ public type Folder record {
     # URL that represents a direct link to the folder in Smartsheet
     string permalink?;
     # **Deprecated** Returned only if the user has marked the folder as a favorite in their "Home" tab (value = true)
-    # 
+    #
     # # Deprecated
     @deprecated
     boolean favorite?;
@@ -4909,20 +4909,20 @@ public type RowGetQueries record {
     # Allows COMMENTER access for inputs and return values. For backwards-compatibility, VIEWER is the default. For example, to see whether a user has COMMENTER access for a sheet, use accessApiLevel=1
     decimal accessApiLevel = 0;
     # A comma-separated list of elements to include in the response.
-    # 
+    #
     # See [Row Include Flags](/api/smartsheet/openapi/rows).
-    # 
+    #
     # Also supports the **columns** include flag, which adds a columns array that specifies all of the columns for the sheet. This enables you to have the full context of the cells in the row.
-    # 
+    #
     # The **filters** include flag returns a **filteredOut** attribute indicating if the row should be displayed or hidden according to the sheet's filters
     "columns"|"filters" include?;
     # Specifies whether object data types, such as multi-contact data are returned in a backwards-compatible, text format in text/number columns.<br>  - Set `level=0` (default) to use text/number columns for multi-contact data and multi-picklist data.<br>  - Set `level=1` to use multiple-entry contact list columns for multi-contact data; multi-picklist data is returned in text/number columns.<br>  - Set `level=2` to use multiple-entry contact list columns for multi-contact data and use multiple-entry picklist columns for multi-picklist data
     int level = 0;
     # A comma-separated list of element types to exclude from the response:
-    #   * **filteredOutRows** - excludes filtered-out rows from response payload if a sheet filter is applied; includes total number of filtered rows
-    #   * **linkInFromCellDetails** - excludes the following attributes from the **cell.linkInFromCell** object: `columnId`, `rowId`, `status`
-    #   * **linksOutToCellsDetails** - excludes the following attributes from the **cell.linksOutToCells** array elements: `columnId`, `rowId`, `status`
-    #   * **nonexistentCells** - excludes empty cells
+    # * **filteredOutRows** - excludes filtered-out rows from response payload if a sheet filter is applied; includes total number of filtered rows
+    # * **linkInFromCellDetails** - excludes the following attributes from the **cell.linkInFromCell** object: `columnId`, `rowId`, `status`
+    # * **linksOutToCellsDetails** - excludes the following attributes from the **cell.linksOutToCells** array elements: `columnId`, `rowId`, `status`
+    # * **nonexistentCells** - excludes empty cells
     "filteredOutRows"|"linkInFromCellDetails"|"linksOutToCellsDetails"|"nonexistentCells" exclude?;
 };
 
@@ -5052,15 +5052,15 @@ public type Template record {
 # Represents the Queries record for the operation: create-folder-folder
 public type CreateFolderFolderQueries record {
     # A comma-separated list of elements to copy:
-    #   * **attachments**
-    #   * **cellLinks** - includes cross-sheet references
-    #   * **data** - includes formatting
-    #   * **discussions** - includes comments
-    #   * **filters**
-    #   * **forms**
-    #   * **ruleRecipients** -- includes notification recipients, must also include rules when using this attribute
-    #   * **rules** -- includes notifications and workflow rules
-    #   * **shares** |
+    # * **attachments**
+    # * **cellLinks** - includes cross-sheet references
+    # * **data** - includes formatting
+    # * **discussions** - includes comments
+    # * **filters**
+    # * **forms**
+    # * **ruleRecipients** -- includes notification recipients, must also include rules when using this attribute
+    # * **rules** -- includes notifications and workflow rules
+    # * **shares** |
     # NOTE: Cell history is not copied, regardless of which include parameter values are specified
     "attachments"|"cellLinks"|"data"|"discussions"|"filters"|"forms"|"ruleRecipients"|"rules"|"shares" include?;
     # A comma-separated list of references to NOT re-map for the newly created folder
@@ -5175,23 +5175,23 @@ public type UserImgProfileResponse record {
 # Represents the Queries record for the operation: remove-user
 public type RemoveUserQueries record {
     # **If you're removing the user from your organization**, set this to `true` to remove the user's access to all assets in your organization and plan.
-    # 
+    #
     # **If you're removing the user from your plan**, this parameter is ignored and the user's access to all assets in your organization and plan is removed automatically
     boolean removeFromSharing = false;
     # **If you're removing the user from your organization** and you want to transfer ownership of all the removed user's assets and groups to a qualified user\*, set this parameter to `true` and set the `transferTo` parameter to the ID of the qualified user. The transfer depends on setting the `transferTo` parameter.
-    # 
+    #
     # **If you're removing the user from your plan**, this parameter is ignored.
-    # 
+    #
     # **Warning:** If your asset transfer size exceeds 38k, the transfer fails with a `400` error that prompts you to contact Support for guidance.
-    # 
+    #
     # \*The receiving user must be a <a href="https://help.smartsheet.com/articles/520100-user-types" target="_blank" rel="noopener noreferrer">Group Admin</a> of the group(s) to be transferred
     boolean transferSheets = false;
     # Set this to the ID of a qualified user\* to receive ownership of all groups the removed user owns.
-    # 
+    #
     # **If you're removing the user from your organization** and you set the `transferSheets` parameter to `true`, the operation additionally transfers ownership of all the removed user's assets to the assigned user.
-    # 
+    #
     # **If you're removing the user from your plan** and you don't set this parameter, the operation transfers group ownership to the respective main contact of each group's organization.
-    # 
+    #
     # \*The receiving user must be a <a href="https://help.smartsheet.com/articles/520100-user-types" target="_blank" rel="noopener noreferrer">Group Admin</a> of the groups
     int transferTo?;
 };
@@ -5266,7 +5266,7 @@ public type RowListData record {
 };
 
 # Container object for additional event-specific properties. Properties depend upon the event type, but all events include an `emailAddress` property, representing the user responsible for the event. 
-# 
+#
 # See [Event types](/api/smartsheet/event-types) for event details, including event-specific `additionalDetails` properties and example event response objects
 public type EventAdditionalDetails record {
     # Email address of the user responsible for the event
@@ -5334,10 +5334,10 @@ public type Proof record {
 };
 
 # Indicates who can access the 'Read-Only Full' view of the published sheet:
-#   * ALL - available to anyone who has the link.
-#   * ORG - available only to members of the sheet owner's Smartsheet organization account.
-#   * SHARED - available only to users shared to the item.
-# 
+# * ALL - available to anyone who has the link.
+# * ORG - available only to members of the sheet owner's Smartsheet organization account.
+# * SHARED - available only to users shared to the item.
+#
 # Only returned in the response if **readOnlyFullEnabled = true**
 public type ReadOnlyFullAccessibleBy "ALL"|"ORG"|"SHARED";
 
@@ -5438,7 +5438,7 @@ public type UserProfile record {
     # User's work phone number
     string workPhone?;
     # **SUNSET** - The `sheetCount` attribute now holds the value `-1` and is included only if the retrieved user's `status` is `ACTIVE`
-    # 
+    #
     # # Deprecated
     @constraint:Number {minValue: -1, maxValue: -1}
     @deprecated
@@ -5528,7 +5528,7 @@ public type ReportAddShareMemberAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the user. 
-    # 
+    #
     # Note that this access level represents the access level that has been granted to the user via group membership; it is not the user's effective access level for the report
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group the user was added to
@@ -5733,7 +5733,7 @@ public type ContainerDestinationForCopy record {
     # Name of the newly created object (when copying a dashboard, folder, sheet, or workspace)
     string newName?;
     # Type of destination container.
-    # 
+    #
     # The `"home"` enum is **Deprecated** since March 25, 2025, and will be removed
     "folder"|"home"|"workspace"? destinationType?;
     # The ID of the destination container
@@ -5743,8 +5743,8 @@ public type ContainerDestinationForCopy record {
 # Represents the Queries record for the operation: discussions-list
 public type DiscussionsListQueries record {
     # A comma-separated list of optional elements to include in the response:
-    #   * **attachments** - effective only if comments is present, otherwise ignored
-    #   * **comments** - include all comments in threads
+    # * **attachments** - effective only if comments is present, otherwise ignored
+    # * **comments** - include all comments in threads
     "attachments"|"comments" include?;
     # The maximum number of items to return per page. Unless otherwise stated for a specific endpoint, defaults to 100. If only page is specified, defaults to a page size of 100. For reports, the default is 100 rows. If you need larger sets of data from your report, returns a maximum of 10,000 rows per request
     decimal pageSize = 100;
@@ -5838,11 +5838,11 @@ public type GetWorkspaceQueries record {
     # Allows COMMENTER access for inputs and return values. For backwards-compatibility, VIEWER is the default. For example, to see whether a user has COMMENTER access for a sheet, use accessApiLevel=1
     decimal accessApiLevel = 0;
     # A comma-separated list of optional elements to include in the response:
-    #   * **source** - adds the Source object indicating which object the folder was created from, if any
-    #   * **distributionLink**
-    #   * **ownerInfo** Returns the user with owner permissions, or the user with admin permissions if there is no owner assigned. If no owner or admins are assigned, the Plan Asset Admin is returned. If no Plan Asset Admin is assigned, the System Admin is returned.
-    #   * **sheetVersion**
-    #   * **permalinks**
+    # * **source** - adds the Source object indicating which object the folder was created from, if any
+    # * **distributionLink**
+    # * **ownerInfo** Returns the user with owner permissions, or the user with admin permissions if there is no owner assigned. If no owner or admins are assigned, the Plan Asset Admin is returned. If no Plan Asset Admin is assigned, the System Admin is returned.
+    # * **sheetVersion**
+    # * **permalinks**
     "source"|"distributionLink"|"ownerInfo"|"sheetVersion" include?;
     # If set to `true`, the workspace's entire hierarchy of items and folders is returned
     boolean loadAll = false;
@@ -5947,10 +5947,10 @@ public type Predecessor record {
     # True if the row referenced by rowId is not a valid row in this sheet, or there is a circular reference (displayed in the Smartsheet app as "#REF") Omitted if false
     boolean invalid?;
     # Type of the predecessor:
-    #  * FF (Finish-to-Finish) - finish at the same time the predecessor finishes.
-    #  * FS (Finish-to-Start) - start after the predecessor finishes.
-    #  * SF (Start-to-Finish) - finish before the predecessor starts.
-    #  * SS (Start-to-Start) - start at the same time the predecessor starts
+    # * FF (Finish-to-Finish) - finish at the same time the predecessor finishes.
+    # * FS (Finish-to-Start) - start after the predecessor finishes.
+    # * SF (Start-to-Finish) - finish before the predecessor starts.
+    # * SS (Start-to-Start) - start at the same time the predecessor starts
     "FF"|"FS"|"SF"|"SS" 'type?;
     # The row number of the predecessor row. Omitted if invalid is true
     decimal rowNumber?;
@@ -6105,15 +6105,15 @@ public type SheetCopyRow record {
 public type GroupIdMembersBody GroupMember|GroupsgroupIdmembersOneOf2;
 
 # The base object for Event Reporting events. 
-# 
+#
 # > **Note:** Event Reporting is a premium add-on available for Enterprise and Advanced Work Management plans. For details on the Event Reporting add-on, please contact our <a href="https://www.smartsheet.com/contact/sales" target="_blank" rel="noopener noreferrer">Sales Team</a>.
-# 
+#
 # All [event types](/api/smartsheet/event-types) include the Event properties and override the following properties:
-# 
+#
 # - `objectType` (string)
 # - `action` (string)
 # - `additionalDetails` (object)
-# 
+#
 # See [Event types](/api/smartsheet/event-types) for event descriptions and example event response objects
 public type Event record {
     # Unique event identifier
@@ -6125,7 +6125,7 @@ public type Event record {
     # time)
     string accessTokenName?;
     # The action applied to the specified object, such as CREATE, UPDATE, or DELETE.
-    # 
+    #
     # See [Event types](/api/smartsheet/event-types) for actions associated with each event object type
     string action?;
     # User whose authentication credential is embedded in the request that
@@ -6138,7 +6138,7 @@ public type Event record {
     # Identifies the client or user agent used to initiate the action
     "WEB_APP"|"MOBILE_IOS"|"MOBILE_ANDROID"|"API_UNDEFINED_APP"|"API_INTEGRATED_APP"|"API_ODBC_DRIVER" 'source?;
     # Container object for additional event-specific properties. Properties depend upon the event type, but all events include an `emailAddress` property, representing the user responsible for the event. 
-    # 
+    #
     # See [Event types](/api/smartsheet/event-types) for event details, including event-specific `additionalDetails` properties and example event response objects
     EventAdditionalDetails additionalDetails?;
     # User assumed as the one who initiated the event. Usually the userId
@@ -6150,7 +6150,7 @@ public type Event record {
     # The identifier of the object impacted by the event
     string objectId?;
     # The type of Smartsheet resource object impacted by the event.
-    # 
+    #
     # See [Event types](/api/smartsheet/event-types) for all the event object types
     string objectType?;
     # Date and time of the event. Defaults to ISO-8601 format. See dates and
@@ -6194,7 +6194,7 @@ public type DashboardAddShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the user. 
-    # 
+    #
     # Note that this access level represents the access level that has been granted to the user via group membership; it is not the user's effective access level for the dashboard
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group the user was added to
@@ -6226,7 +6226,7 @@ public type ListOrgSheetsQueries record {
 # Represents the Queries record for the operation: get-contact
 public type GetContactQueries record {
     # A comma-separated list of optional elements to include in the response:
-    #   * **profileImage**
+    # * **profileImage**
     "profileImage" include?;
 };
 
@@ -6651,7 +6651,7 @@ public type ListSearchQueries record {
     # Text with which to perform the search. Enclose in double-quotes for an exact search
     string query;
     # **Deprecated** When specified with a value of **personalWorkspace**, limits the response to only those items in the user's workspaces
-    # 
+    #
     # # Deprecated
     @deprecated
     string location = "";
@@ -6773,7 +6773,7 @@ public type WorkspaceAddShareMemberAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the user. 
-    # 
+    #
     # Note that this access level represents the access level that has been granted to the user via group membership; it is not the user's effective access level for the workspace
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group the user was added to
@@ -6894,7 +6894,7 @@ public type WorkspaceAddShareAdditionalDetails record {
     # Email address of the user responsible for the event
     string emailAddress;
     # Indicates the access level granted to the group or user. 
-    # 
+    #
     # Note that this access level represents the access level granted by this specific sharing action; it is not the group or user's effective access level for the workspace
     "VIEWER"|"EDITOR"|"EDITOR_SHARE"|"ADMIN" accessLevel?;
     # Id of the group that was added to the workspace's sharing list. (Specific to share to group actions)
@@ -6913,8 +6913,8 @@ public type CommentCreationRequest record {
 # Represents the Queries record for the operation: cellHistory-get
 public type CellHistoryGetQueries record {
     # A comma-separated list of elements to copy:
-    #   * **columnType** - includes the columnType attribute for each Cell object
-    #   * **objectValue** - when used in combination with a level query parameter, includes the email addresses for a multi-contact cell
+    # * **columnType** - includes the columnType attribute for each Cell object
+    # * **objectValue** - when used in combination with a level query parameter, includes the email addresses for a multi-contact cell
     "columnType"|"objectValue" include?;
     # Specifies whether object data types, such as multi-contact data are returned in a backwards-compatible, text format in text/number columns.<br>  - Set `level=0` (default) to use text/number columns for multi-contact data and multi-picklist data.<br>  - Set `level=1` to use multiple-entry contact list columns for multi-contact data; multi-picklist data is returned in text/number columns.<br>  - Set `level=2` to use multiple-entry contact list columns for multi-contact data and use multiple-entry picklist columns for multi-picklist data
     int level = 0;
@@ -7542,7 +7542,7 @@ public type User record {
     # User Id
     decimal id?;
     # **SUNSET** - The `sheetCount` attribute now holds the value `-1` and is included only if the retrieved user's `status` is `ACTIVE`
-    # 
+    #
     # # Deprecated
     @constraint:Number {minValue: -1, maxValue: -1}
     @deprecated
@@ -7697,13 +7697,13 @@ public type DiscussionsListHeaders record {
 # Updates group properties, including name, description, and owner
 public type GroupUpdate1 record {
     # name (Optional)
-    # 
+    #
     # Must be unique within the organization account
     string name?;
     # Description (optional)
     string description?;
     # ownerId (optional)
-    # 
+    #
     # Id of an admin user to whom the group ownership is transferred
     decimal ownerId?;
 };
@@ -7711,10 +7711,10 @@ public type GroupUpdate1 record {
 # Describes the current user's editing permissions for a specific sheet
 public type SheetUserPermissions record {
     # One of:
-    #   * ADMIN: full control over fields.
-    #   * READ_DELETE: sheet is owned by an individual account that doesn't have summary capabilities. If a summary exists, the only possible operations are GET and DELETE fields.
-    #   * READ_ONLY.
-    #   * READ_WRITE: can edit values of existing fields, but not create or delete fields, nor modify field type
+    # * ADMIN: full control over fields.
+    # * READ_DELETE: sheet is owned by an individual account that doesn't have summary capabilities. If a summary exists, the only possible operations are GET and DELETE fields.
+    # * READ_ONLY.
+    # * READ_WRITE: can edit values of existing fields, but not create or delete fields, nor modify field type
     "ADMIN"|"READ_DELETE"|"READ_ONLY"|"READ_WRITE" summaryPermissions?;
 };
 
