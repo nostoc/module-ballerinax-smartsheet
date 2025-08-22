@@ -1,6 +1,6 @@
 # Project Task Management Integration
 
-This example demonstrates how to automate project task creation using Ballerina connector for Smartsheet. When a new project is created via HTTP API, the system automatically creates initial tasks in Smartsheet and sends a summary notification message to Slack.
+This example demonstrates how to automate project task creation using Ballerina connector for Smartsheet. When a new project is created, the system automatically creates initial tasks in Smartsheet and sends a summary notification message to Slack.
 
 ## Prerequisites
 
@@ -47,35 +47,3 @@ curl -X POST http://localhost:8080/projects \
   }'
 ```
 
-Or use this sample JSON payload:
-
-```json
-{
-  "projectName": "Website Redesign",
-  "startDate": "2025-08-25",
-  "status" : "pending"
-  "status" : "ACTIVE",
-  "assignedTo": "developer@example.com"
-}
-```
-<!--
-The service will automatically:
-- Find the Projects and Tasks sheets by name
-- Get the column IDs for required columns
-- Create initial tasks in the Tasks sheet with calculated due dates:
-  - "Kick-off Meeting" (due: start date + 1 day)
-  - "Requirement Gathering" (due: start date + 3 days)
-  - "Resource Allocation" (due: start date + 5 days)
-- Send a summary notification to the configured Slack channel
-- Return a JSON response with the operation details
-
-## Health Check
-
-You can also check if the service is running:
-
-```bash
-curl http://localhost:8080/health
-```
-
-This will return a simple status response indicating the service is operational.
- -->
