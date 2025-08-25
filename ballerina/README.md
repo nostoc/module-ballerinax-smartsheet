@@ -26,7 +26,7 @@ To use the Smartsheet connector, you must have access to the Smartsheet API thro
 ![generate API token ](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-smartsheet/refs/heads/main/docs/setup/resources/generate-api-token.png)
 
 
-> You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons
+> **Tip:** You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons
 
 ## Quickstart
 
@@ -102,7 +102,7 @@ bal run
 
 ## Examples
 
-The `Smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/module-ballerinax-smartsheet/tree/main/examples/), covering the following use cases:
+The `Smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples), covering the following use cases:
 
-1. [Project task management](https://github.com/module-ballerinax-smartsheet/tree/main/examples/project_task_management) - Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
+1. [Project task management](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/project_task_management) - Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
 
