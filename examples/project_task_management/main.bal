@@ -15,14 +15,14 @@ configurable string slackToken = ?;
 configurable string slackChannel = ?;
 
 // Column titles
-const string COL_PROJ_NAME = "Project Name";
-const string COL_PROJ_START = "Start Date";
-const string COL_PROJ_STATUS = "Status";
+const COL_PROJ_NAME = "Project Name";
+const COL_PROJ_START = "Start Date";
+const COL_PROJ_STATUS = "Status";
 
-const string COL_TASK_NAME = "Task Name";
-const string COL_TASK_ASSIGNEE = "Assigned To";
-const string COL_TASK_DUE = "Due Date";
-const string COL_TASK_PROJECT = "Project Name";
+const COL_TASK_NAME = "Task Name";
+const COL_TASK_ASSIGNEE = "Assigned To";
+const COL_TASK_DUE = "Due Date";
+const COL_TASK_PROJECT = "Project Name";
 
 // Predefined initial tasks
 type TaskTemplate record {|
@@ -55,20 +55,6 @@ type NewProjectRequest record {|
     string assignedTo?;
     string status;
 |};
-
-// Configuration validation at startup
-function init() returns error? {
-    if smartsheetToken == "" {
-        return error("Smartsheet token is required");
-    }
-    if slackToken == "" {
-        return error("Slack token is required");
-    }
-    if slackChannel == "" {
-        return error("Slack channel is required");
-    }
-    log:printInfo("Project Task Management service initialized successfully");
-}
 
 // helper functions
 function findSheetIdByName(string sheetName) returns decimal|error {
@@ -155,34 +141,8 @@ function addDays(string ymd, int days) returns string|error {
     return string `${newCivil.year}-${mm}-${dd}`;
 }
 
-// Validates project request input
-
-function validateProjectRequest(NewProjectRequest req) returns error? {
-    if strings:trim(req.projectName) == "" {
-        return error("Project name is required and cannot be empty");
-    }
-    string[] parts = regex:split(req.startDate, "-");
-    if parts.length() != 3 {
-        return error("Start date must be in YYYY-MM-DD format");
-    }
-
-    int|error year = int:fromString(parts[0]);
-    int|error month = int:fromString(parts[1]);
-    int|error day = int:fromString(parts[2]);
-
-    if year is error || month is error || day is error {
-        return error("Invalid date format; expected YYYY-MM-DD");
-    }
-
-    if year < 2000 || year > 2100 || month < 1 || month > 12 || day < 1 || day > 31 {
-        return error("Invalid date values");
-    }
-}
-
 // Create initial tasks for a new project
-
 function createInitialTasksForProject(NewProjectRequest req) returns json|error {
-    check validateProjectRequest(req);
     // Resolve sheets
     decimal projectsSheetId = check findSheetIdByName(projectsSheetName);
     decimal tasksSheetId = check findSheetIdByName(tasksSheetName);
@@ -251,7 +211,7 @@ function createInitialTasksForProject(NewProjectRequest req) returns json|error 
 
 // notify slack
 function sendSlackMessage(string channel, string text) returns error? {
-    log:printInfo(string `Sending Slack message to channel: ${channel}`);
+    log:printInfo("Sending Slack message to channel: ", channel = channel);
     slack:ChatPostMessageResponse|error result = slackClient->/chat\.postMessage.post({
         channel: channel,
         text: text
@@ -260,26 +220,18 @@ function sendSlackMessage(string channel, string text) returns error? {
         log:printError("Failed to send Slack message", 'error = result);
         return result;
     }
-    log:printInfo(string `Slack notification sent to channel: ${channel}`);
+    log:printInfo("Slack notification sent to channel: ", channel = channel);
 }
 
 service / on new http:Listener(8080) {
-    resource function post projects(@http:Payload NewProjectRequest req) returns http:Ok|http:BadRequest|http:InternalServerError {
-        log:printInfo(string `Received project creation request: ${req.projectName}`);
-
-        error? validationResult = validateProjectRequest(req);
-        if validationResult is error {
-            log:printWarn(string `Validation failed: ${validationResult.message()}`);
-            return <http:BadRequest>{
-                body: {"error": validationResult.message()}
-            };
-        }
+    resource function post projects(NewProjectRequest req) returns http:Ok|http:BadRequest|http:InternalServerError {
+        log:printInfo("Received project creation request: ", projectName = req.projectName);
 
         var res = createInitialTasksForProject(req);
         if res is json {
             return <http:Ok>{body: res};
         } else {
-            log:printError("Failed to create initial tasks", 'error = res);
+            log:printError("Failed to create initial tasks", res);
             return <http:InternalServerError>{
                 body: {"error": res.message()}
             };

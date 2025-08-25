@@ -12,11 +12,6 @@ The `ballerinax/smartsheet` connector provides practical examples illustrating u
 
     ```toml
     smartsheetToken = "SMARTSHEET_ACCESS_TOKEN"
-    projectsSheetName = "PROJECT_SHEET_NAME"
-    tasksSheetName = "TASK_SHEET_NAME"
-    slackToken = "SLACK_TOKEN"
-    slackChannel = "SLACK_CHANNEL"
-
 ## Running an example
 
 Execute the following commands to build an example from the source:
