@@ -12,6 +12,7 @@ The `ballerinax/smartsheet` connector provides practical examples illustrating u
 
     ```toml
     smartsheetToken = "SMARTSHEET_ACCESS_TOKEN"
+    ```
 ## Running an example
 
 Execute the following commands to build an example from the source:
