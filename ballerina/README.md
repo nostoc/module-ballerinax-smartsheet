@@ -30,7 +30,7 @@ To use the Smartsheet connector, you must have access to the Smartsheet API thro
 
 ## Quickstart
 
-To use the `Smartsheet` connector in your Ballerina application, update the `.bal` file as follows:
+To use the Smartsheet connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the module
 
@@ -102,7 +102,7 @@ bal run
 
 ## Examples
 
-The `Smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/module-ballerinax-smartsheet/tree/main/examples/), covering the following use cases:
+The `Smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples), covering the following use cases:
 
-1. [Project task management](https://github.com/module-ballerinax-smartsheet/tree/main/examples/project_task_management) - Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
+1. [Project task management](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/project_task_management) - Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
 
