@@ -63,7 +63,7 @@ configurable string token = ?;
 
 final smartsheet:Client smartsheet = check new({
     auth: {
-        token: token
+        token
     }
 });
 ```
@@ -111,7 +111,7 @@ bal run
 
 The `Smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/module-ballerinax-smartsheet/tree/main/examples/), covering the following use cases:
 
-1. [project task management](https://github.com/module-ballerinax-smartsheet/tree/main/examples/project_task_management) -  Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
+1. [Project task management](https://github.com/module-ballerinax-smartsheet/tree/main/examples/project_task_management) -  Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
 
 ## Build from the source
 
