@@ -1,14 +1,21 @@
 # Examples
 
-The `ballerinax/smartsheet` connector provides practical examples illustrating usage in various scenarios.
+The `ballerinax/smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples), covering use cases like project task management integration.
 
-[//]: # (TODO: Add examples)
-1. 
-2. 
+1. [Project task management integration](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/project_task_management) - Automate project task creation using Ballerina connector for Smartsheet. When a new project is created, the system automatically creates initial tasks in Smartsheet and sends a summary notification message to Slack.
 
 ## Prerequisites
 
-[//]: # (TODO: Add prerequisites)
+1. Generate Smartsheet credentials to authenticate the connector as described in the [Setup guide](https://central.ballerina.io/ballerinax/smartsheet/latest#setup-guide).
+
+2. For each example, create a `Config.toml` file the related configuration. Here's an example of how your `Config.toml` file should look:
+
+    ```toml
+    smartsheetToken = "SMARTSHEET_ACCESS_TOKEN"
+    projectsSheetName = "PROJECT_SHEET_NAME"
+    tasksSheetName = "TASK_SHEET_NAME"
+    slackToken = "SLACK_TOKEN"
+    slackChannel = "SLACK_CHANNEL"
 
 ## Running an example
 
