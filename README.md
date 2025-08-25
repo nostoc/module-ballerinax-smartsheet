@@ -34,7 +34,7 @@ To use the Smartsheet connector, you must have access to the Smartsheet API thro
 ![generate API token ](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-smartsheet/refs/heads/main/docs/setup/resources/generate-api-token.png)
 
 
-> You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons
+> **Tip:** You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons
 
 ## Quickstart
 
