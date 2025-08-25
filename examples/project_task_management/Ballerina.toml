@@ -1,12 +1,12 @@
 [package]
 org = "wso2"
 name = "project_task_management"
-version = "0.1.0"
+version = "1.0.0"
 
 [[dependency]]
 org = "ballerinax"
 name = "smartsheet"
-version = "0.1.0"
+version = "1.0.0"
 repository = "local"
 
 
