@@ -151,7 +151,7 @@
         "tags" : [ "contacts" ],
         "summary" : "List Contacts",
         "description" : "Gets a list of the user's Smartsheet contacts.",
-        "operationId" : "list-contacts",
+        "operationId" : "listContacts",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -220,7 +220,7 @@
         "tags" : [ "contacts" ],
         "summary" : "Get Contact",
         "description" : "Gets the specified contact.",
-        "operationId" : "get-contact",
+        "operationId" : "getContact",
         "parameters" : [ {
           "$ref" : "#/components/parameters/contactInclude"
         } ],
@@ -284,7 +284,7 @@
         "tags" : [ "events" ],
         "summary" : "List events",
         "description" : "Fetches events for System Admin users. This includes actions such as creating, updating, loading, deleting, and more of items such as sheets, reports, dashboards, attachments, and users in your Smartsheet organization account.\n\nSee [Event types](/api/smartsheet/event-types.md) for the complete event listing, details, and example objects.\n\n> **Who can use this endpoint?**\n> \n> - **Plans:** Requires the Event Reporting premium add-on available for Enterprise and Advanced Work Management plans only.\n> - **Permissions:** System Admin\n\n> **NOTE:** You must specify exactly one of the query parameters `since` or `streamPosition`. Both are optional individually, but one is required.\n",
-        "operationId" : "list-events",
+        "operationId" : "listEvents",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Accept-Encoding"
         }, {
@@ -452,7 +452,7 @@
         "tags" : [ "favorites" ],
         "summary" : "Get Favorites",
         "description" : "Gets a list of all of the user's favorite items.",
-        "operationId" : "get-favorites",
+        "operationId" : "getFavorites",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -515,7 +515,7 @@
         "tags" : [ "favorites" ],
         "summary" : "Add Favorites",
         "description" : "Adds one or more favorite items for the current user. This operation supports both single-object and bulk semantics. For more information, see Optional Bulk Operations.\nIf called with a single Favorite object, and that favorite already exists, error code 1129 is returned. If called with an array of Favorite objects, any objects specified in the array that are already marked as favorites are ignored and omitted from the response.\n",
-        "operationId" : "add-favorite",
+        "operationId" : "addFavorite",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -590,7 +590,7 @@
         "tags" : [ "favorites" ],
         "summary" : "Delete Multiple Favorites",
         "description" : "Deletes all favorites with the same type for the user.",
-        "operationId" : "delete-favorites-by-type",
+        "operationId" : "deleteFavoritesByType",
         "parameters" : [ {
           "$ref" : "#/components/parameters/favoriteIds"
         } ],
@@ -656,7 +656,7 @@
         "tags" : [ "favorites" ],
         "summary" : "Is Favorite",
         "description" : "Checks whether an item has been tagged as a favorite for the current user by type and ID.",
-        "operationId" : "is-favorite",
+        "operationId" : "isFavorite",
         "parameters" : [ {
           "$ref" : "#/components/parameters/favoriteInclude"
         } ],
@@ -697,7 +697,7 @@
         "tags" : [ "favorites" ],
         "summary" : "Delete Favorite",
         "description" : "Deletes a single favorite from the user's list of favorite items by type and ID.",
-        "operationId" : "delete-favorites-by-type-and-id",
+        "operationId" : "deleteFavoritesByTypeAndId",
         "responses" : {
           "200" : {
             "description" : "Returns Result object",
@@ -762,7 +762,7 @@
         "tags" : [ "events" ],
         "summary" : "List filtered events",
         "description" : "Fetches events related to given sheets and workspaces for non-admin users.\n\nSee [Event types](/api/smartsheet/event-types.md) for the complete event listing, details, and example objects.\n\n> **Who can use this endpoint?**\n> \n> - **Plans:** Requires the Event Reporting premium add-on available for Enterprise and Advanced Work Management plans only.\n> - **Permissions:** Non-admin users who have access to given sheets or workspaces.\n",
-        "operationId" : "list-filtered-events",
+        "operationId" : "listFilteredEvents",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Accept-Encoding"
         }, {
@@ -841,7 +841,7 @@
         "tags" : [ "folders" ],
         "summary" : "Get Folder",
         "description" : "Gets a Folder object.",
-        "operationId" : "get-folder",
+        "operationId" : "getFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/folderWorkspaceInclude"
         } ],
@@ -898,7 +898,7 @@
         "tags" : [ "folders" ],
         "summary" : "Update Folder",
         "description" : "Updates a folder.",
-        "operationId" : "update-folder",
+        "operationId" : "updateFolder",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -961,7 +961,7 @@
         "tags" : [ "folders" ],
         "summary" : "Delete Folder",
         "description" : "Deletes a folder.",
-        "operationId" : "delete-folder",
+        "operationId" : "deleteFolder",
         "responses" : {
           "200" : {
             "description" : "Returns Result object\n",
@@ -1022,7 +1022,7 @@
         "tags" : [ "folders" ],
         "summary" : "Copy Folder",
         "description" : "Copies a folder.",
-        "operationId" : "copy-folder",
+        "operationId" : "copyFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -1103,7 +1103,7 @@
         "tags" : [ "folders" ],
         "summary" : "List Folders",
         "description" : "Gets a list of folders in a given folder. The list contains an abbreviated Folder object for each folder.\n",
-        "operationId" : "list-folders",
+        "operationId" : "listFolders",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -1164,7 +1164,7 @@
         "tags" : [ "folders" ],
         "summary" : "Create Folder",
         "description" : "Creates a new folder.\n",
-        "operationId" : "create-folder-folder",
+        "operationId" : "createFolderFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -1245,7 +1245,7 @@
         "tags" : [ "folders" ],
         "summary" : "Move Folder",
         "description" : "Moves a folder.",
-        "operationId" : "move-folder",
+        "operationId" : "moveFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -1320,7 +1320,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Create Sheet in Folder",
         "description" : "Creates a sheet from scratch or from the specified template in the specified folder.\n",
-        "operationId" : "create-sheet-in-folder",
+        "operationId" : "createSheetInFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -1397,7 +1397,7 @@
         "tags" : [ "imports" ],
         "summary" : "Import Sheet into Folder",
         "description" : "Imports CSV or XLSX data into a new sheet in the specified folder.\n\nNote the following:\n* Both sheetName and the file name must use ASCII characters.\n* The source data must be basic text. To include rich formula data, import and create a sheet first, and then use Update Rows. To work with images, see Cell Images.\n* XLS is not supported. You must use XLSX.\n* Hierarchical relationships between rows in an external file won't import.\n",
-        "operationId" : "import-sheet-into-folder",
+        "operationId" : "importSheetIntoFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Disposition"
         }, {
@@ -1480,7 +1480,7 @@
         "tags" : [ "home" ],
         "summary" : "List Contents",
         "description" : "> **Deprecated** since March 25, 2025, and will be removed. To adapt to this change, please see [Migrate from using the Sheets folder](/api/smartsheet/guides/updating-code/migrate-from-using-the-sheets-folder).\n\nGets a nested list of all Home objects shared to the user, including \ndashboards, folders, reports, sheets, and templates, as shown on the \"Home\"\ntab.\n",
-        "operationId" : "list-home-contents",
+        "operationId" : "listHomeContents",
         "parameters" : [ {
           "$ref" : "#/components/parameters/folderWorkspaceInclude"
         } ],
@@ -1527,7 +1527,7 @@
         "tags" : [ "groups" ],
         "summary" : "List Org Groups",
         "description" : "Gets a list of all groups in an organization account. To fetch the members of an individual group, use the [Get Group](/api/smartsheet/openapi/groups/get-group) operation.\n",
-        "operationId" : "list-groups",
+        "operationId" : "listGroups",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -1592,7 +1592,7 @@
         "tags" : [ "groups" ],
         "summary" : "Add Group",
         "description" : "Creates a new group.\n\n**_This operation is only available to group administrators and system administrators._**\n",
-        "operationId" : "add-group",
+        "operationId" : "addGroup",
         "requestBody" : {
           "description" : "[Group object](/api/smartsheet/openapi/groups/group), limited to the following attributes:\n* name (required) -- must be unique within the organization account\n* description (optional)\n* members (optional) -- array of [GroupMember objects](/api/smartsheet/openapi/groupmembers/groupmember), each limited to the following attribute:\n    * email",
           "content" : {
@@ -1660,7 +1660,7 @@
         "tags" : [ "groups" ],
         "summary" : "Get Group",
         "description" : "Gets information about an array of [Group Members](/api/smartsheet/openapi/groupmembers/groupmember) for the group specified in the URL.",
-        "operationId" : "get-group",
+        "operationId" : "getGroup",
         "responses" : {
           "200" : {
             "description" : "[Group](/api/smartsheet/openapi/groups/group) object that includes the list of [GroupMember](/api/smartsheet/openapi/groupmembers/groupmember) objects\n",
@@ -1714,7 +1714,7 @@
         "tags" : [ "groups" ],
         "summary" : "Update Group",
         "description" : "Updates the Group specified in the URL.\n\n**_This operation is only available to group administrators and system administrators._**\n",
-        "operationId" : "update-group",
+        "operationId" : "updateGroup",
         "requestBody" : {
           "description" : "Group object, limited to the following attributes:\n* description (optional)\n* name (optional) -- must be unique within the organization account\n* ownerId (optional): Id of an admin user to whom the group ownership is transferred",
           "content" : {
@@ -1774,7 +1774,7 @@
         "tags" : [ "groups" ],
         "summary" : "Delete Group",
         "description" : "Deletes the group specified in the URL.\n\n**_This operation is only available to group administrators and system administrators._**\n",
-        "operationId" : "delete-group",
+        "operationId" : "deleteGroup",
         "responses" : {
           "200" : {
             "description" : "**_This operation is asynchronous,_** _meaning group members may retain their sharing access for a brief period of time after the call returns. For small groups with limited sharing, the operation should complete quickly (within a few seconds). For large groups with many shares, this operation could possibly take more than a minute to complete._\n",
@@ -1831,7 +1831,7 @@
         "tags" : [ "groupMembers" ],
         "summary" : "Add Group Members",
         "description" : "Adds one or more members to a group.\n\n**_This operation supports both single-object and bulk semantics. For more information, see Optional Bulk Operations._**\n\nIf called with a single [GroupMember object](/api/smartsheet/openapi/groupmembers/groupmember), and that group member already exists, error code **1129** is returned.\nIf called with an array of [GroupMember objects](/api/smartsheet/openapi/groupmembers/groupmember), any users specified in the array that are already group members are ignored and omitted from the response.\n\n**_This operation is only available to group administrators and system administrators._**\n",
-        "operationId" : "add-group-members",
+        "operationId" : "addGroupMembers",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -1901,7 +1901,7 @@
         "tags" : [ "groupMembers" ],
         "summary" : "Delete Group Members",
         "description" : "Removes a member from a group.\n\n**_This operation is only available to group administrators and system administrators._**\n",
-        "operationId" : "delete-group-members",
+        "operationId" : "deleteGroupMembers",
         "responses" : {
           "200" : {
             "description" : "**_This operation is asynchronous,_** _meaning the users may not yet have sharing access to sheets for a period of time after this operation returns. For small groups with limited sharing, the operation should complete quickly (within a few seconds). For large groups with many shares, this operation could possibly take more than a minute to complete._\n",
@@ -1964,7 +1964,7 @@
         "tags" : [ "home" ],
         "summary" : "List Folders in Home",
         "description" : "> **IMPORTANT:** The `GET /home/folders` method is deprecated and will be removed. To adapt to this change, please see [Migrate from using the Sheets folder](/api/smartsheet/guides/updating-code/migrate-from-using-the-sheets-folder).\n\nLists the folders in your **Sheets** folder. The list contains an abbreviated Folder object for each folder.\n",
-        "operationId" : "home-list-folders",
+        "operationId" : "homeListFolders",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -2025,7 +2025,7 @@
         "tags" : [ "home" ],
         "summary" : "Create Folder",
         "description" : "> **Deprecated** since March 25, 2025, and will be removed. To adapt to this change, please see [Migrate from using the Sheets folder](/api/smartsheet/guides/updating-code/migrate-from-using-the-sheets-folder).\n\nCreates a new folder.\n",
-        "operationId" : "create-home-folder",
+        "operationId" : "createHomeFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -2512,7 +2512,7 @@
         "tags" : [ "sharing", "reports" ],
         "summary" : "List Report Shares",
         "description" : "Gets a list of all users and groups to whom the specified Report is shared, and their access level.\nThis operation supports query string parameters for pagination of results.\n",
-        "operationId" : "list-report-shares",
+        "operationId" : "listReportShares",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sharingInclude"
         }, {
@@ -2575,7 +2575,7 @@
         "tags" : [ "sharing", "reports" ],
         "summary" : "Share Report",
         "description" : "Shares a Report with the specified users and groups.",
-        "operationId" : "share-report",
+        "operationId" : "shareReport",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sendEmail"
         } ],
@@ -2658,7 +2658,7 @@
         "tags" : [ "sharing", "reports" ],
         "summary" : "Get Report Share",
         "description" : "Gets the share specified in the URL.",
-        "operationId" : "share-report-get",
+        "operationId" : "shareReportGet",
         "responses" : {
           "200" : {
             "description" : "Returns Share object",
@@ -2712,7 +2712,7 @@
         "tags" : [ "sharing", "reports" ],
         "summary" : "Update Report Share",
         "description" : "Updates the access level of a user or group for the specified report.",
-        "operationId" : "update-report-share",
+        "operationId" : "updateReportShare",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -2775,7 +2775,7 @@
         "tags" : [ "sharing", "reports" ],
         "summary" : "Delete Report Share",
         "description" : "Deletes the share specified in the URL.",
-        "operationId" : "delete-report-share",
+        "operationId" : "deleteReportShare",
         "responses" : {
           "200" : {
             "description" : "Returns Result object",
@@ -2840,7 +2840,7 @@
         "tags" : [ "search" ],
         "summary" : "Search Everything",
         "description" : "Searches all sheets that the user can access, for the specified text. If you have not used the public API in a while, we will need to provision your data. This could take up to 24 hours so please check back later!",
-        "operationId" : "list-search",
+        "operationId" : "listSearch",
         "parameters" : [ {
           "$ref" : "#/components/parameters/query"
         }, {
@@ -2910,7 +2910,7 @@
         "tags" : [ "search" ],
         "summary" : "Search Sheet",
         "description" : "Gets a list of the user's search results in a sheet based on query. The list contains an abbreviated row object for each search result in a sheet. If you have not used the public API in a while, we will need to provision your data. This could take up to 24 hours so please check back later! *Note* Newly created or recently updated data may not be immediately discoverable via search.",
-        "operationId" : "list-search-sheet",
+        "operationId" : "listSearchSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/query"
         } ],
@@ -2953,7 +2953,7 @@
         "tags" : [ "serverInfo" ],
         "summary" : "Gets application constants.",
         "description" : "Gets application constants.",
-        "operationId" : "serverinfo-get",
+        "operationId" : "serverinfoGet",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -2994,7 +2994,7 @@
         "tags" : [ "sheets" ],
         "summary" : "List Sheets",
         "description" : "Gets a list of all sheets that the user has access to. The list contains an abbreviated Sheet object for each sheet.\n",
-        "operationId" : "list-sheets",
+        "operationId" : "listSheets",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sheetInclude"
         }, {
@@ -3061,7 +3061,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Create Sheet in \"Sheets\" Folder",
         "description" : "> **Deprecated** since March 25, 2025, and will be removed. To adapt to this change, please see [Migrate from using the Sheets folder](/api/smartsheet/guides/updating-code/migrate-from-using-the-sheets-folder).\n\nCreates a sheet from scratch or from the specified template in the user's\nSheets folder (Home).\n\nFor subfolders, use Create Sheet in Folder.\n",
-        "operationId" : "create-sheet-in-sheets-folder",
+        "operationId" : "createSheetInSheetsFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -3139,7 +3139,7 @@
         "tags" : [ "imports" ],
         "summary" : "Import Sheet from CSV / XLSX",
         "description" : "> **Deprecated** since March 25, 2025, and will be removed. To adapt to this change, please see [Migrate from using the Sheets folder](/api/smartsheet/guides/updating-code/migrate-from-using-the-sheets-folder).\n\nImports CSV or XLSX data into a new sheet in the top-level \"Sheets\" folder.\n\nNote the following:\n\n* Both sheetName and the file name must use ASCII characters.\n\n* The source data must be basic text. To include rich formula data, import\nand create a sheet first, and then use Update Rows. To work with images, see\nCell Images.\n\n* XLS is not supported. You must use XLSX.\n\n* Hierarchical relationships between rows in an external file won't import.\n",
-        "operationId" : "import-sheet-into-sheets-folder",
+        "operationId" : "importSheetIntoSheetsFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Disposition"
         }, {
@@ -3443,7 +3443,7 @@
         "tags" : [ "attachments" ],
         "summary" : "List Attachments",
         "description" : "Gets a list of all attachments that are on the sheet, including sheet, row, and discussion-level attachments.\n",
-        "operationId" : "attachments-listOnSheet",
+        "operationId" : "attachmentsListOnSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -3494,7 +3494,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Attach File or URL to Sheet",
         "description" : "Attaches a file to the sheet. The URL can be any of the following:\n\n* Normal URL (attachmentType \"LINK\")\n* Box.com URL (attachmentType \"BOX_COM\")\n* Dropbox URL (attachmentType \"DROPBOX\")\n* Egnyte URL (attachmentType \"EGNYTE\")\n* Evernote URL (attachmentType \"EVERNOTE\")\n* Google Drive URL (attachmentType \"GOOGLE_DRIVE\")\n* OneDrive URL (attachmentType \"ONEDRIVE\")\n\n>**Important:** Smartsheet Gov allows only the following attachment types:\n> - BOX_COM\n> - FILE\n> - GOOGLE_DRIVE\n> - LINK\n> - ONEDRIVEß\n\nFor multipart uploads please use \"multipart/form-data\" content type.\n",
-        "operationId" : "attachments-attachToSheet",
+        "operationId" : "attachmentsAttachToSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -3568,7 +3568,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Get Attachment",
         "description" : "Fetches a temporary URL that allows you to download an attachment. The urlExpiresInMillis attribute tells you how long the URL is valid.\n",
-        "operationId" : "attachments-get",
+        "operationId" : "attachmentsGet",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -3612,7 +3612,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Delete Attachment",
         "description" : "Deletes the attachment specified in the URL.\n",
-        "operationId" : "attachments-delete",
+        "operationId" : "attachmentsDelete",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -3665,7 +3665,7 @@
         "tags" : [ "attachments" ],
         "summary" : "List Versions",
         "description" : "Gets a list of all versions of the given attachmentId in order from newest to oldest.\n",
-        "operationId" : "attachments-versionList",
+        "operationId" : "attachmentsVersionList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -3716,7 +3716,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Attach New version",
         "description" : "Uploads a new version of a file to a sheet or row. This operation can be performed using a simple upload or a multipart upload.\n",
-        "operationId" : "attachments-versionUpload",
+        "operationId" : "attachmentsVersionUpload",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -3778,7 +3778,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Delete All Versions",
         "description" : "Deletes all versions of the attachment corresponding to the specified attachmentId. For attachments with\nmultiple versions, this effectively deletes the attachment from the object that it’s attached to.\n",
-        "operationId" : "attachments-versionsDelete",
+        "operationId" : "attachmentsVersionsDelete",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -3831,7 +3831,7 @@
         "tags" : [ "automationRules" ],
         "summary" : "List All Automation Rules",
         "description" : "Returns all automation rules associated with the specified sheet.\n\nMultistep workflows are not returned via the API.\nInstead, you'll see an error 400 - 1266: This rule is not accessible through the API.\nOnly single-action notifications, approval requests, or update requests qualify.\n\nFor users of Smartsheet for Slack, note that Slack notifications are not returned.\n",
-        "operationId" : "automationrules-list",
+        "operationId" : "automationRulesList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -3885,7 +3885,7 @@
         "tags" : [ "automationRules" ],
         "summary" : "Get an Automation Rule",
         "description" : "Returns the specified automation rule, including any action values.\n",
-        "operationId" : "automationrule-get",
+        "operationId" : "automationRuleGet",
         "responses" : {
           "200" : {
             "description" : "AutomationRule object",
@@ -3925,7 +3925,7 @@
         "tags" : [ "automationRules" ],
         "summary" : "Update an Automation Rule",
         "description" : "Updates an existing automation rule.\n\nWhen sending an AutomationRule, you must always specify **action.type** and it must match the existing rule type.\n",
-        "operationId" : "automationrule-update",
+        "operationId" : "automationRuleUpdate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -3977,7 +3977,7 @@
         "tags" : [ "automationRules" ],
         "summary" : "Delete an Automation Rule",
         "description" : "Deletes an automation rule.\n",
-        "operationId" : "automationrule-delete",
+        "operationId" : "automationRuleDelete",
         "responses" : {
           "200" : {
             "description" : "Result object",
@@ -4026,7 +4026,7 @@
         "tags" : [ "columns" ],
         "summary" : "List Columns",
         "description" : "Gets a list of all columns belonging to the sheet specified in the URL.",
-        "operationId" : "columns-listOnSheet",
+        "operationId" : "columnsListOnSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/columnsLevel"
         }, {
@@ -4079,7 +4079,7 @@
         "tags" : [ "columns" ],
         "summary" : "Add Columns",
         "description" : "Inserts one or more columns into the sheet specified in the URL.This operation can be performed using a [simple upload](/api/smartsheet/openapi/attachments) or a [multipart upload](/api/smartsheet/openapi/attachments). For more information, see [Post an Attachment](/api/smartsheet/openapi/attachments).",
-        "operationId" : "columns-addToSheet",
+        "operationId" : "columnsAddToSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -4143,7 +4143,7 @@
         "tags" : [ "columns" ],
         "summary" : "Get Column",
         "description" : "Gets definitions for the column specified in the URL. **NOTE:** If you need to see the values of individual cells within the column, use [Get Sheet](#operation/getSheet) or [Get Row](#operation/row-get).",
-        "operationId" : "column-get",
+        "operationId" : "columnGet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sheetLevel"
         } ],
@@ -4190,7 +4190,7 @@
         "tags" : [ "columns" ],
         "summary" : "Update Column",
         "description" : "Updates properties of the column, moves the column, or renames the column.\n\n**NOTE:**\n* You cannot change the type of a Primary column.\n* While dependencies are enabled on a sheet, you can't change the type of any special calendar/Gantt columns.\n* If the column type is changed, all cells in the column are converted to the new column type and column validation is cleared.\n* Type is optional when moving or renaming, but required when changing type or dropdown values.\n",
-        "operationId" : "column-updateColumn",
+        "operationId" : "columnUpdateColumn",
         "requestBody" : {
           "description" : "A [Column object]() that contains the following attributes:\n * **index**\n * **autoNumberFormat** (optional)\n * **contactOptions** (optional) -- must have set column type to CONTACT_LIST\n * **description** (optional)\n * **format** (optional)\n * **formula** (optional)\n * **hidden**(optional)\n * **locked** (optional)\n * **options** (optional)\n * **symbol** (optional)\n * **systemColumnType** (optional)\n * **title** (optional)\n * **type** (optional)\n * **validation** (optional)\n * **width** (optional)\n \n**NOTE:** When setting a column type of PICKLIST or MULTI_PICKLIST, you must follow a one operation per API call rule. For these column types, you must set the column type first, and then add any additional constraints in a second call, such as setting *validation* to *true*.",
           "content" : {
@@ -4244,7 +4244,7 @@
         "tags" : [ "columns" ],
         "summary" : "Delete Column",
         "description" : "Deletes the column specified in the URL.",
-        "operationId" : "column-delete",
+        "operationId" : "columnDelete",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -4297,7 +4297,7 @@
         "tags" : [ "comments" ],
         "summary" : "Get a comment",
         "description" : "Gets the comment specified by commentId.\n",
-        "operationId" : "comment-get",
+        "operationId" : "commentGet",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -4341,7 +4341,7 @@
         "tags" : [ "comments" ],
         "summary" : "Edit a comment",
         "description" : "Updates the text of a comment. NOTE: Only the user that created the comment is permitted to update it.\n",
-        "operationId" : "comment-edit",
+        "operationId" : "commentEdit",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -4393,7 +4393,7 @@
         "tags" : [ "comments" ],
         "summary" : "Delete a comment",
         "description" : "Deletes the comment specified in the URL.\n",
-        "operationId" : "comment-delete",
+        "operationId" : "commentDelete",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -4446,7 +4446,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Attach File or URL to Comment",
         "description" : "Attaches a file to the comment. The URL can be any of the following:\n\n* Normal URL (attachmentType \"LINK\")\n* Box.com URL (attachmentType \"BOX_COM\")\n* Dropbox URL (attachmentType \"DROPBOX\")\n* Egnyte URL (attachmentType \"EGNYTE\")\n* Evernote URL (attachmentType \"EVERNOTE\")\n* Google Drive URL (attachmentType \"GOOGLE_DRIVE\")\n* OneDrive URL (attachmentType \"ONEDRIVE\")\n\n>**Important:** Smartsheet Gov allows only the following attachment types:\n> - BOX_COM\n> - FILE\n> - GOOGLE_DRIVE\n> - LINK\n> - ONEDRIVEß\n\nThis operation can be performed using a simple upload or a multipart upload.\n",
-        "operationId" : "attachments-attachToComment",
+        "operationId" : "attachmentsAttachToComment",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -4522,7 +4522,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Copy Sheet",
         "description" : "Creates a copy of the specified sheet.\n",
-        "operationId" : "copy-sheet",
+        "operationId" : "copySheet",
         "requestBody" : {
           "description" : "Destination where to create a copy of the specified sheet",
           "content" : {
@@ -4600,7 +4600,7 @@
         "tags" : [ "crossSheetReferences" ],
         "summary" : "List Cross-sheet References",
         "description" : "Lists all cross-sheet references for the sheet.",
-        "operationId" : "list-crosssheet-references",
+        "operationId" : "listCrossSheetReferences",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -4661,7 +4661,7 @@
         "tags" : [ "crossSheetReferences" ],
         "summary" : "Create Cross-sheet References",
         "description" : "Adds a cross-sheet reference between two sheets and defines the data range for formulas. Each distinct data range requires a new cross-sheet reference.",
-        "operationId" : "add-crosssheet-reference",
+        "operationId" : "addCrossSheetReference",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -4736,7 +4736,7 @@
         "tags" : [ "crossSheetReferences" ],
         "summary" : "Get Cross-sheet Reference",
         "description" : "Gets the cross-sheet reference specified in the URL.",
-        "operationId" : "get-crosssheet-reference",
+        "operationId" : "getCrossSheetReference",
         "responses" : {
           "200" : {
             "description" : "CrossSheetReference object",
@@ -4799,7 +4799,7 @@
         "tags" : [ "discussions" ],
         "summary" : "List Discussions",
         "description" : "Gets a list of all discussions associated with the specified sheet. Remember that discussions are containers\nfor the conversation thread. To see the entire thread, use the include=comments parameter.\n",
-        "operationId" : "discussions-list",
+        "operationId" : "discussionsList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/discussionInclude"
         }, {
@@ -4852,7 +4852,7 @@
         "tags" : [ "discussions" ],
         "summary" : "Create a Discussion",
         "description" : "Creates a new discussion on a sheet. To create a discussion with an attachment please use \"multipart/form-data\" content type.\n",
-        "operationId" : "discussions-create",
+        "operationId" : "discussionsCreate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -4930,7 +4930,7 @@
         "tags" : [ "discussions" ],
         "summary" : "Get Discussion",
         "description" : "Gets the discussion specified by discussionId.\n",
-        "operationId" : "discussion-get",
+        "operationId" : "discussionGet",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -4974,7 +4974,7 @@
         "tags" : [ "discussions" ],
         "summary" : "Delete a Discussion",
         "description" : "Deletes the discussion specified in the URL.\n",
-        "operationId" : "discussion-delete",
+        "operationId" : "discussionDelete",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -5027,7 +5027,7 @@
         "tags" : [ "attachments", "discussions" ],
         "summary" : "List Discussion Attachments",
         "description" : "Gets a list of all attachments that are in the discussion.\n",
-        "operationId" : "discussion-listAttachments",
+        "operationId" : "discussionListAttachments",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -5087,7 +5087,7 @@
         "tags" : [ "comments" ],
         "summary" : "Create a comment",
         "description" : "Adds a comment to a discussion. To create a comment with an attachment please use \"multipart/form-data\" content type.\n",
-        "operationId" : "comments-create",
+        "operationId" : "commentsCreate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -5167,7 +5167,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Send Sheet via Email",
         "description" : "Sends the sheet as a PDF attachment via email to the designated recipients.",
-        "operationId" : "sheet-send",
+        "operationId" : "sheetSend",
         "requestBody" : {
           "description" : "[SheetEmail object](/api/smartsheet/openapi/sendviaemail/sheetemail)",
           "content" : {
@@ -5230,7 +5230,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Move Sheet",
         "description" : "Moves the specified sheet to a new location.\nWhen a sheet that is shared to one or more users and/or groups is moved into or out of a workspace, those sheet-level shares are preserved.\n",
-        "operationId" : "move-sheet",
+        "operationId" : "moveSheet",
         "requestBody" : {
           "description" : "Destination to move the specified sheet",
           "content" : {
@@ -5304,7 +5304,7 @@
         "tags" : [ "proofs" ],
         "summary" : "List Proofs",
         "description" : "Gets a list of all proofs for a given sheet.\n",
-        "operationId" : "proofs-getAllProofs",
+        "operationId" : "proofsGetAllProofs",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -5346,7 +5346,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Get Proof",
         "description" : "Gets the proof specified in the URL. Returns the proof, which is optionally populated with discussion and attachment objects.\n",
-        "operationId" : "proofs-get",
+        "operationId" : "proofsGet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/proofInclude"
         } ],
@@ -5377,7 +5377,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Update Proof Status",
         "description" : "Sets the proof status as either complete or incomplete.\n",
-        "operationId" : "proofs-update",
+        "operationId" : "proofsUpdate",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -5414,7 +5414,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Delete Proof",
         "description" : "Deletes the proof including all versions. The proofId must be for the original version.\n",
-        "operationId" : "proofs-delete",
+        "operationId" : "proofsDelete",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -5451,7 +5451,7 @@
         "tags" : [ "proofs" ],
         "summary" : "List Proof Attachments",
         "description" : "Gets a list of all attachments that are in the proof, excluding discussion-level attachments in the proof.\n",
-        "operationId" : "proofs-listAttachments",
+        "operationId" : "proofsListAttachments",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -5486,7 +5486,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Attach File to Proof",
         "description" : "Attaches a file to the proof.\n",
-        "operationId" : "proofs-attachToProof",
+        "operationId" : "proofsAttachToProof",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -5536,7 +5536,7 @@
         "tags" : [ "proofs" ],
         "summary" : "List Proof Discussions",
         "description" : "Gets a list of all discussions that are in the proof.\n",
-        "operationId" : "proofs-listDiscussions",
+        "operationId" : "proofsListDiscussions",
         "parameters" : [ {
           "$ref" : "#/components/parameters/discussionInclude"
         }, {
@@ -5568,7 +5568,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Create Proof Discussion",
         "description" : "Creates a discussion on a proof.\n",
-        "operationId" : "proofs-createDiscussion",
+        "operationId" : "proofsCreateDiscussion",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -5636,7 +5636,7 @@
         "tags" : [ "proofs" ],
         "summary" : "List Proof Request Actions",
         "description" : "Gets a summarized list of all request actions associated with the specified proof.\n",
-        "operationId" : "proofs-listRequestActions",
+        "operationId" : "proofsListRequestActions",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -5680,7 +5680,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Create Proof Request",
         "description" : "Creates a proof request.\n",
-        "operationId" : "proofs-createProofRequests",
+        "operationId" : "proofsCreateProofRequests",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -5720,7 +5720,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Delete Proof Requests",
         "description" : "Deletes all proof requests in a proof.\n",
-        "operationId" : "proofs-deleteProofRequests",
+        "operationId" : "proofsDeleteProofRequests",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -5757,7 +5757,7 @@
         "tags" : [ "proofs" ],
         "summary" : "List Proof Versions",
         "description" : "Gets a list of all versions of the given proofId in order from newest to oldest.\n",
-        "operationId" : "proofs-getVersions",
+        "operationId" : "proofsGetVersions",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -5792,7 +5792,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Create Proof Version",
         "description" : "Creates a proof version. Proof Id must be for the original proof.\n",
-        "operationId" : "proofs-createVersion",
+        "operationId" : "proofsCreateVersion",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -5843,7 +5843,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Delete Proof Version",
         "description" : "Deletes a proof version. Proof Id must be a current version proof Id.\n",
-        "operationId" : "proofs-deleteVersion",
+        "operationId" : "proofsDeleteVersion",
         "responses" : {
           "200" : {
             "description" : "SUCCESS",
@@ -5880,7 +5880,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Get Sheet Publish Status",
         "description" : "Gets the sheet's 'Publish' settings.\n",
-        "operationId" : "get-sheetPublish",
+        "operationId" : "getSheetPublish",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -5934,7 +5934,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Set Sheet Publish Status",
         "description" : "Sets the publish status of the sheet and returns the new status, including the URLs of any enabled publishings.\n",
-        "operationId" : "set-sheetPublish",
+        "operationId" : "setSheetPublish",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -6008,7 +6008,7 @@
         "tags" : [ "rows" ],
         "summary" : "Update Rows",
         "description" : "Updates cell values in the specified rows, expands/collapses the specified rows, or modifies the position of specified rows (including indenting/outdenting). For detailed information about changing row positions, see [location-specifier attributes](/api/smartsheet/openapi/rows).\n\nNote: This operation does not handle adding images to cells. However, you can upload an image to a cell by calling the operation described in the [Add Image to Cell](/api/smartsheet/openapi/cellimages/addimagetocell) page.\n",
-        "operationId" : "update-rows",
+        "operationId" : "updateRows",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -6081,7 +6081,7 @@
         "tags" : [ "rows" ],
         "summary" : "Add Rows",
         "description" : "Inserts one or more rows into the sheet specified in the URL. If you want to insert the rows in any position but the default, use [location-specifier attributes](/api/smartsheet/openapi/rows) (that is, toTop, toBottom, parentId, siblingId, above, indent, outdent). See language tabs for variations in syntax.\n\nNote: This operation does not add rows with cells that have images. However, you can upload an image to a cell *after* the cell exists in a sheet. To do so, call the operation described in the [Add Image to Cell](/api/smartsheet/openapi/cellimages/addimagetocell) page.\n\nThis operation supports both single-object and bulk semantics. For more information, see [Optional Bulk Operations](/api/smartsheet/guides/advanced-topics/scalability-options#bulk-operations).\n",
-        "operationId" : "rows-addToSheet",
+        "operationId" : "rowsAddToSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -6154,7 +6154,7 @@
         "tags" : [ "rows" ],
         "summary" : "Delete Rows",
         "description" : "Deletes one or more rows from the sheet specified in the URL.",
-        "operationId" : "delete-rows",
+        "operationId" : "deleteRows",
         "parameters" : [ {
           "$ref" : "#/components/parameters/rowIds"
         }, {
@@ -6213,7 +6213,7 @@
         "tags" : [ "rows" ],
         "summary" : "Send Rows via Email",
         "description" : "Sends one or more rows via email.",
-        "operationId" : "rows-send",
+        "operationId" : "rowsSend",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -6277,7 +6277,7 @@
         "tags" : [ "rows" ],
         "summary" : "Copy Rows to Another Sheet",
         "description" : "Copies rows from the sheet specified in the URL to (the bottom of) another sheet.",
-        "operationId" : "copy-rows",
+        "operationId" : "copyRows",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -6344,7 +6344,7 @@
         "tags" : [ "rows" ],
         "summary" : "Move Rows to Another Sheet",
         "description" : "Moves rows from the sheet specified in the URL to (the bottom of) another sheet.",
-        "operationId" : "move-rows",
+        "operationId" : "moveRows",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -6411,7 +6411,7 @@
         "tags" : [ "rows" ],
         "summary" : "Get Row",
         "description" : "Gets the row specified in the URL.",
-        "operationId" : "row-get",
+        "operationId" : "rowGet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -6473,7 +6473,7 @@
         "tags" : [ "attachments" ],
         "summary" : "List Row Attachments",
         "description" : "Gets a list of all attachments that are on the row, including row and discussion-level attachments.\n",
-        "operationId" : "attachments-listOnRow",
+        "operationId" : "attachmentsListOnRow",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -6524,7 +6524,7 @@
         "tags" : [ "attachments" ],
         "summary" : "Attach File or URL to Row",
         "description" : "Attaches a file to the row. The URL can be any of the following:\n\n* Normal URL (attachmentType \"LINK\")\n* Box.com URL (attachmentType \"BOX_COM\")\n* Dropbox URL (attachmentType \"DROPBOX\")\n* Egnyte URL (attachmentType \"EGNYTE\")\n* Evernote URL (attachmentType \"EVERNOTE\")\n* Google Drive URL (attachmentType \"GOOGLE_DRIVE\")\n* OneDrive URL (attachmentType \"ONEDRIVE\")\n\n>**Important:** Smartsheet Gov allows only the following attachment types:\n> - BOX_COM\n> - FILE\n> - GOOGLE_DRIVE\n> - LINK\n> - ONEDRIVEß\n\nFor multipart uploads please use \"multipart/form-data\" content type.\n",
-        "operationId" : "row-attachments-attachFile",
+        "operationId" : "rowAttachmentsAttachFile",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -6676,7 +6676,7 @@
         "tags" : [ "cells" ],
         "summary" : "List Cell History",
         "description" : "Gets the cell modification history.\n",
-        "operationId" : "cellHistory-get",
+        "operationId" : "cellHistoryGet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/cellHistoryInclude"
         }, {
@@ -6750,7 +6750,7 @@
         "tags" : [ "discussions" ],
         "summary" : "List Discussions with a Row",
         "description" : "Gets a list of all discussions associated with the specified row. Remember that discussions are containers\nfor the conversation thread. To see the entire thread, use the include=comments parameter.\n",
-        "operationId" : "row-discussions-list",
+        "operationId" : "rowDiscussionsList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/discussionInclude"
         }, {
@@ -6803,7 +6803,7 @@
         "tags" : [ "discussions" ],
         "summary" : "Create a Discussion on a Row",
         "description" : "Creates a new discussion on a row. To create a discussion with an attachment please use \"multipart/form-data\" content type.\n",
-        "operationId" : "row-discussions-create",
+        "operationId" : "rowDiscussionsCreate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -6883,7 +6883,7 @@
         "tags" : [ "proofs" ],
         "summary" : "Create Proof",
         "description" : "Creates a proof on a row.\n",
-        "operationId" : "proofs-create",
+        "operationId" : "proofsCreate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -6933,7 +6933,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "List Sent Update Requests",
         "description" : "Gets a summarized list of all sent update requests on the sheet.\nOnly the following fields are returned in the response:\n  * **id**\n  * **message**\n  * **sendTo**\n  * **sentAt**\n  * **sentBy**\n  * **status**\n  * **subject**\n  * **updateRequestId**\n",
-        "operationId" : "sentupdaterequests-list",
+        "operationId" : "sentUpdateRequestsList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -6991,7 +6991,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "Get Sent Update Request",
         "description" : "Gets the specified sent update request on the sheet.\n",
-        "operationId" : "sentupdaterequest-get",
+        "operationId" : "sentUpdateRequestGet",
         "responses" : {
           "200" : {
             "description" : "SentUpdateRequest object",
@@ -7035,7 +7035,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "Delete Sent Update Request",
         "description" : "Deletes the specified sent update request.\n\n**Delete operation is supported only when the specified sent update request is in the pending status.\nDeleting a sent update request that was already completed by recipient is not allowed.**\n",
-        "operationId" : "sentupdaterequest-delete",
+        "operationId" : "sentUpdateRequestDelete",
         "responses" : {
           "200" : {
             "description" : "Result object",
@@ -7096,7 +7096,7 @@
         "tags" : [ "sheetSummary" ],
         "summary" : "Get Sheet Summary",
         "description" : "Returns object containing array of summary fields. Allows for pagination of results.",
-        "operationId" : "list-summary-fields",
+        "operationId" : "listSummaryFields",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sheetSummaryInclude"
         }, {
@@ -7162,7 +7162,7 @@
         "tags" : [ "sheetSummary" ],
         "summary" : "Get Summary Fields",
         "description" : "Returns object containing array of summary fields. Allows for pagination of results.",
-        "operationId" : "list-summary-fields-paginated",
+        "operationId" : "listSummaryFieldsPaginated",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -7227,7 +7227,7 @@
         "tags" : [ "sheetSummary" ],
         "summary" : "Update Summary Fields",
         "description" : "Updates the summary fields for the given sheet.",
-        "operationId" : "update-summary-fields",
+        "operationId" : "updateSummaryFields",
         "parameters" : [ {
           "$ref" : "#/components/parameters/renameIfConflict"
         } ],
@@ -7298,7 +7298,7 @@
         "tags" : [ "sheetSummary" ],
         "summary" : "Add Summary Fields",
         "description" : "Creates one or more summary fields for the specified sheet.",
-        "operationId" : "add-summary-fields",
+        "operationId" : "addSummaryFields",
         "parameters" : [ {
           "$ref" : "#/components/parameters/renameIfConflict"
         } ],
@@ -7369,7 +7369,7 @@
         "tags" : [ "sheetSummary" ],
         "summary" : "Delete Summary Fields",
         "description" : "Deletes summary fields from the specified sheet.",
-        "operationId" : "delete-summary-fields",
+        "operationId" : "deleteSummaryFields",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sheetSummaryFieldIds"
         }, {
@@ -7435,7 +7435,7 @@
         "tags" : [ "sheetSummary" ],
         "summary" : "Add Image to Sheet Summary",
         "description" : "Adds an image to the summary field.",
-        "operationId" : "add-image-summaryField",
+        "operationId" : "addImageSummaryField",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -7519,7 +7519,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "List Update Requests",
         "description" : "Gets a summarized list of all update requests that have future schedules associated with the specified sheet.\nOnly the following fields are returned in the response:\n  * **id**\n  * **ccMe**\n  * **createdAt**\n  * **message**\n  * **modifiedAt**\n  * **schedule**\n  * **sendTo**\n  * **sentBy**\n  * **subject**\n",
-        "operationId" : "updaterequests-list",
+        "operationId" : "updateRequestsList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -7570,7 +7570,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "Create an Update Request",
         "description" : "Creates an update request for the specified rows within the sheet. An email notification (containing a link to the update request) is sent to the specified recipients according to the specified schedule.\n\nThe recipients of an update request must be specified by using email addresses only. Sending an update request to a group is not supported.\n\nThe following attributes have the following values when not specified:\n* **ccMe:** false\n* **message:** Please update the following rows in my online sheet.\n* **subject:** Update Request: {Sheet Name}\n\nWhen the Schedule object is not specified, the request is sent to the recipients immediately.\n\nIf an error occurs because the request specified one or more *alternate email addresses*,\nplease retry using the primary email address.\n",
-        "operationId" : "updaterequests-create",
+        "operationId" : "updateRequestsCreate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -7633,7 +7633,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "Get an Update Request",
         "description" : "Gets the specified update request for the sheet that has a future schedule.\n\nThe rowIds and columnIds in the returned UpdateRequest object represent the list at the time\nthe update request was created or last modified. The lists may contain Ids of rows or columns\nthat are no longer valid (for example, they have been removed from the sheet).\n",
-        "operationId" : "updaterequests-get",
+        "operationId" : "updateRequestsGet",
         "responses" : {
           "200" : {
             "description" : "UpdateRequest object",
@@ -7677,7 +7677,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "Update an Update Request",
         "description" : "Changes the specified update request for the sheet.\n\n**Making changes to update requests that do not have future scheduled delivery is not allowed.**\n\nThe UpdateRequest object in the request body must specify one or more of the following attributes:\n\n* **ccMe:** Boolean\n* **columnIds:** number[]\n* **includeAttachments:** Boolean\n* **includeDiscussions:** Boolean\n* **message:** string\n* **schedule:** Schedule object\n* **sendTo:** Recipient[]\n* **subject:** string\n\nIf an error occurs because the request specified one or more *alternate email addresses*,\nplease retry using the primary email address.\n",
-        "operationId" : "updaterequests-update",
+        "operationId" : "updateRequestsUpdate",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -7724,7 +7724,7 @@
         "tags" : [ "updateRequests" ],
         "summary" : "Delete an Update Request",
         "description" : "Terminates the future scheduled delivery of the update request specified in the URL.\n",
-        "operationId" : "updaterequests-delete",
+        "operationId" : "updateRequestsDelete",
         "responses" : {
           "200" : {
             "description" : "Result object",
@@ -7785,7 +7785,7 @@
         "tags" : [ "sharing", "sheets" ],
         "summary" : "List Sheet Shares",
         "description" : "Gets a list of all users and groups to whom the specified Sheet is shared, and their access level. This operation\nsupports query string parameters for pagination of results. For more information, see Paging Query String Parameters.\n",
-        "operationId" : "list-sheet-shares",
+        "operationId" : "listSheetShares",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sharingInclude"
         }, {
@@ -7848,7 +7848,7 @@
         "tags" : [ "sharing", "sheets" ],
         "summary" : "Share Sheet",
         "description" : "Shares a sheet with the specified users and groups.",
-        "operationId" : "share-sheet",
+        "operationId" : "shareSheet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sendEmail"
         } ],
@@ -7933,7 +7933,7 @@
         "tags" : [ "sharing", "sheets" ],
         "summary" : "Get Sheet Share.",
         "description" : "Gets the share specified in the URL.",
-        "operationId" : "share-sheet-get",
+        "operationId" : "shareSheetGet",
         "responses" : {
           "200" : {
             "description" : "Returns Share object",
@@ -7987,7 +7987,7 @@
         "tags" : [ "sharing", "sheets" ],
         "summary" : "Update Sheet Share.",
         "description" : "Updates the access level of a user or group for the specified sheet.",
-        "operationId" : "update-sheet-share",
+        "operationId" : "updateSheetShare",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -8050,7 +8050,7 @@
         "tags" : [ "sharing", "sheets" ],
         "summary" : "Delete Sheet Share",
         "description" : "Deletes the share specified in the URL.",
-        "operationId" : "delete-sheet-share",
+        "operationId" : "deleteSheetShare",
         "responses" : {
           "200" : {
             "description" : "Returns Result object",
@@ -8115,7 +8115,7 @@
         "tags" : [ "rows" ],
         "summary" : "Sort Rows in Sheet",
         "description" : "Sorts the rows of a sheet, either in ascending or descending order.",
-        "operationId" : "rows-sort",
+        "operationId" : "rowsSort",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sortRows"
         } ],
@@ -8181,7 +8181,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Get Sheet Version",
         "description" : "Gets the sheet version without loading the entire sheet.\nThe following actions increment sheet version:\n* add/modify cell value\n* add/modify discussion/comment\n* add/modify row\n* add/remove/update version attachment\n* cell updated via cell link\n* change formatting\n",
-        "operationId" : "get-sheetVersion",
+        "operationId" : "getSheetVersion",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -8242,7 +8242,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "List Dashboards",
         "description" : "Gets a list of all dashboards that the user has access to.",
-        "operationId" : "list-sights",
+        "operationId" : "listSights",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -8312,7 +8312,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Get Dashboard",
         "description" : "Gets the specified dashboard.",
-        "operationId" : "get-sight",
+        "operationId" : "getSight",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -8375,7 +8375,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Update Dashboard",
         "description" : "Updates (renames) the specified dashboard.",
-        "operationId" : "update-sight",
+        "operationId" : "updateSight",
         "parameters" : [ {
           "$ref" : "#/components/parameters/numericDates"
         }, {
@@ -8443,7 +8443,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Delete Dashboard",
         "description" : "Deletes the dashboard specified in the URL.",
-        "operationId" : "delete-sight",
+        "operationId" : "deleteSight",
         "responses" : {
           "200" : {
             "description" : "Generic response result",
@@ -8504,7 +8504,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Copy Dashboard",
         "description" : "Creates a copy of the specified dashboard.",
-        "operationId" : "copy-sight",
+        "operationId" : "copySight",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Authorization"
         }, {
@@ -8576,7 +8576,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Move Dashboard",
         "description" : "Moves the specified dashboard to a new location.",
-        "operationId" : "move-sight",
+        "operationId" : "moveSight",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Authorization"
         }, {
@@ -8648,7 +8648,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Get Dashboard Publish Status",
         "description" : "Gets the dashboard 'publish' settings.",
-        "operationId" : "get-sight-publish-status",
+        "operationId" : "getSightPublishStatus",
         "responses" : {
           "200" : {
             "description" : "SightPublish object",
@@ -8702,7 +8702,7 @@
         "tags" : [ "dashboards" ],
         "summary" : "Set Dashboard Publish Status",
         "description" : "Publishes or unpublishes a dashboard.",
-        "operationId" : "set-sight-publish-status",
+        "operationId" : "setSightPublishStatus",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -8775,7 +8775,7 @@
         "tags" : [ "dashboards", "sharing" ],
         "summary" : "List Dashboard Shares",
         "description" : "Gets a list of all users and groups to whom the specified dashboard is shared, and their access level.",
-        "operationId" : "list-sight-shares",
+        "operationId" : "listSightShares",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sharingInclude"
         }, {
@@ -8838,7 +8838,7 @@
         "tags" : [ "dashboards", "sharing" ],
         "summary" : "Share Dashboard",
         "description" : "Shares a dashboard with the specified users and groups.",
-        "operationId" : "share-sight",
+        "operationId" : "shareSight",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sendEmail"
         } ],
@@ -8923,7 +8923,7 @@
         "tags" : [ "dashboards", "sharing" ],
         "summary" : "Get Dashboard Share",
         "description" : "Gets a list of all users and groups to whom the specified dashboard is shared, and their access level.",
-        "operationId" : "share-sight-get",
+        "operationId" : "shareSightGet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         } ],
@@ -8980,7 +8980,7 @@
         "tags" : [ "dashboards", "sharing" ],
         "summary" : "Update Dashboard Share",
         "description" : "Updates the access level of a user or group for the specified dashboard.",
-        "operationId" : "update-sight-share",
+        "operationId" : "updateSightShare",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         } ],
@@ -9046,7 +9046,7 @@
         "tags" : [ "dashboards", "sharing" ],
         "summary" : "Delete Dashboard Share",
         "description" : "Deletes the share specified in the URL.",
-        "operationId" : "delete-sight-share",
+        "operationId" : "deleteSightShare",
         "responses" : {
           "200" : {
             "description" : "Returns Result object",
@@ -9109,7 +9109,7 @@
         "tags" : [ "templates" ],
         "summary" : "List User-Created Templates",
         "description" : "Gets a list of user-created templates that the user has access to.",
-        "operationId" : "templates-list",
+        "operationId" : "templatesList",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -9167,7 +9167,7 @@
         "tags" : [ "templates" ],
         "summary" : "List Public Templates",
         "description" : "Gets a list of public templates that the user has access to.",
-        "operationId" : "templates-listPublic",
+        "operationId" : "templatesListPublic",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -9216,7 +9216,7 @@
         "tags" : [ "tokens" ],
         "summary" : "Gets or Refreshes an Access Token",
         "description" : "Gets or refreshes an access token, as part of the OAuth process.",
-        "operationId" : "tokens-getOrRefresh",
+        "operationId" : "tokensGetOrRefresh",
         "parameters" : [ {
           "name" : "Content-Type",
           "in" : "header",
@@ -9351,7 +9351,7 @@
         "tags" : [ "tokens" ],
         "summary" : "Revoke Access Token",
         "description" : "Revokes the access token used to make this request. The access token is no longer valid, and subsequent API calls made using the token fail.",
-        "operationId" : "tokens-delete",
+        "operationId" : "tokensDelete",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Authorization"
         }, {
@@ -9416,7 +9416,7 @@
         "tags" : [ "users" ],
         "summary" : "List Users",
         "description" : "Gets a list of users in the organization account. To filter by email, use the optional email query string parameter to specify a list of users' email addresses.\n\n**NOTE:** If the API request is submitted by a system administrator, the following User object attributes are included in the response (else, they are omitted from the response):\n  * **admin**\n  * **groupAdmin**\n  * **licensedSheetCreator**\n  * **resourceViewer**\n  * **sheetCount** (SUNSET) - The `sheetCount` attribute now holds the value `-1` and is included only if the retrieved user's `status` is `ACTIVE`.\n  * **status**\n\n**NOTE:** If the API request is submitted by a system administrator of an Enterprise account, and <a href=\"https://help.smartsheet.com/articles/1392225-customizing-a-welcome-message-upgrade-screen-enterprise-only\" target=\"_blank\" rel=\"noopener noreferrer\">Custom Welcome Screen</a> is enabled, the following [User object](/api/smartsheet/openapi/users/user) attributes are included in the response (else, they are omitted from the response):\n  * **customWelcomeScreenViewed** (omitted if the user has never viewed the <a href=\"https://help.smartsheet.com/articles/1392225-customizing-a-welcome-message-upgrade-screen-enterprise-only\" target=\"_blank\" rel=\"noopener noreferrer\">Custom Welcome Screen</a>)\n",
-        "operationId" : "list-users",
+        "operationId" : "listUsers",
         "parameters" : [ {
           "$ref" : "#/components/parameters/emailInclude"
         }, {
@@ -9483,7 +9483,7 @@
         "tags" : [ "users" ],
         "summary" : "Add User",
         "description" : "Adds a user to the organization account.\n\n* **_This operation is only available to system administrators_**\n\n* **If successful, and user auto provisioning (UAP) is on, and user matches the auto provisioning rules, user is added to the org. If UAP is off, or user does not match UAP rules, user is invited to the org and must explicitly accept the invitation to join.**\n\n* **In some specific scenarios, supplied attributes such as firstName and lastName may be ignored. For example, if you are inviting an existing Smartsheet user to join your organization account, and the invited user has not yet accepted your invitation, any supplied firstName and lastName are ignored.**\n",
-        "operationId" : "add-user",
+        "operationId" : "addUser",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sendEmail"
         } ],
@@ -9555,7 +9555,7 @@
         "tags" : [ "users" ],
         "summary" : "Get Current User",
         "description" : "Gets the current user\n\n**NOTE:** For system administrators, the following UserProfile attributes are included in the response:\n  * **customWelcomeScreenViewed** (only included when an Enterprise user has viewed the <a href=\"https://help.smartsheet.com/articles/1392225-customizing-a-welcome-message-upgrade-screen-enterprise-only\" target=\"_blank\" rel=\"noopener noreferrer\">Custom Welcome Screen</a>)\n  * **lastLogin** (only included if the user has logged in)\n  * **sheetCount** (SUNSET) - The `sheetCount` attribute now holds the value `-1` and is included only if the retrieved user's `status` is `ACTIVE`.\n",
-        "operationId" : "get-current-user",
+        "operationId" : "getCurrentUser",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Authorization"
         }, {
@@ -9616,7 +9616,7 @@
         "tags" : [ "sheets" ],
         "summary" : "List Org Sheets",
         "description" : "Gets a summarized list of all sheets owned by the members of the organization account.\n\n* **_This operation is only available to system administrators_**\n\n* **_You may use the query string parameter numericDates with a value of true to enable strict parsing of dates in numeric format. See [Dates and Times](/api/smartsheet/guides/basics/dates-and-times) for more information._**\n",
-        "operationId" : "list-org-sheets",
+        "operationId" : "listOrgSheets",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Authorization"
         }, {
@@ -9677,7 +9677,7 @@
         "tags" : [ "users" ],
         "summary" : "Get User",
         "description" : "Gets the user specified in the URL.\n\n* NOTE: For system administrators, the following UserProfile attributes are included in the response):\n  * **admin**\n  * **customWelcomeScreenViewed** (only returned when an Enterprise user has viewed the <a href=\"https://help.smartsheet.com/articles/1392225-customizing-a-welcome-message-upgrade-screen-enterprise-only\" target=\"_blank\" rel=\"noopener noreferrer\">Custom Welcome Screen</a>)\n  * **groupAdmin**\n  * **lastLogin** (only returned if the user has logged in)\n  * **licensedSheetCreator**\n  * **resourceViewer**\n  * **sheetCount** (SUNSET) - The `sheetCount` attribute now holds the value `-1` and is included only if the retrieved user's `status` is `ACTIVE`.\n  * **status**\n",
-        "operationId" : "get-user",
+        "operationId" : "getUser",
         "responses" : {
           "200" : {
             "description" : "Returns UserProfile object\n",
@@ -9731,7 +9731,7 @@
         "tags" : [ "users" ],
         "summary" : "Update User",
         "description" : "Updates the user specified in the URL.",
-        "operationId" : "update-user",
+        "operationId" : "updateUser",
         "requestBody" : {
           "description" : "User object containing at least one of the following attributes:\n  * admin (required)\n  * licensedSheetCreator (required)\n  * firstName (optional)\n  * groupAdmin (optional)\n  * lastName (optional)\n  * resourceViewer (optional)",
           "content" : {
@@ -9795,7 +9795,7 @@
         "tags" : [ "users" ],
         "summary" : "Remove User",
         "description" : "Removes the user from your organization or plan, based on the user's relationship with your organization and plan. Removing a user from a plan removes the user's access to all items in that plan.\n\nIf you have <a href=\"https://help.smartsheet.com/articles/2482433-Enterprise-plan-manager-overview\" target=\"_blank\" rel=\"noopener noreferrer\">Enterprise Plan Manager</a> enabled, this endpoint removes the user from organizations that inherit from your organization.\n\n**Requirement:** You must be a System Admin.\n\n<h3>Context</h3>\n\nThe User Subscription Model associates users with your organization account (organization) and plan. Additionally, it can associate users shared to your plan's assets with your plan only. The Legacy Collaboration Model associates users with your organization only. \n\n- **Users in your organization** have an Active, Pending, or Declined member status. To look up member status, see the **Member status** column on the **Admin Center > User Management** page or the `status` property in the [`GET /users`](/api/smartsheet/openapi/users/list-users) endpoint response.\n\n- **Users in your plan** have the `Member` value in the **User type** column on the **Admin Center > User types and true-up** page. For more details on user types, see <a href=\"https://help.smartsheet.com/articles/520100-user-types\" target=\"_blank\" rel=\"noopener noreferrer\">User types</a>.\n\nThis endpoint has the following capabilities:\n\n- Remove a user from an organization on a User Subscription Model or Legacy Collaboration Model.\n- Remove a user from a plan on a User Subscription Model.\n\n<h3>Logic</h3>\n\nThe logic path this endpoint executes depends on the user's relationship with your organization and plan.\n\n- If the user is in your organization, the operation removes the user from your organization.\n\n- Otherwise, if your plan is on the User Subscription Model, the operation removes the user from your plan, thereby removing the user's access to all items in the plan.\n\n> **NOTE:** Only users internal to your plan can be removed from your plan. You can check this in the Smartsheet application:\n>\n> 1. Go to the **Admin Center > User types and true-up** page\n> 2. Select the **All users** tab\n> 3. You can filter on internal users by selecting the **User domain > Internal**.\n>\n>    Alternatively, you can select **User domain > All** and examine the user list; the internal users don't have an **External** tag next to their email address. \n\n> **NOTE:** Users managed by an external source, such as an identity provider (IdP) or directory integration (DI) provider, can only be removed via the external source. External source examples include Okta and Azure AD.\n\n> **IMPORTANT:** If your plan is on the User Subscription Model and you want to remove a user from both your organization and your plan, you must call this operation twice.\n>\n> 1. Call this operation to remove the user from your organization.\n> 2. Call this operation to remove the user from your plan.\n",
-        "operationId" : "remove-user",
+        "operationId" : "removeUser",
         "parameters" : [ {
           "name" : "removeFromSharing",
           "in" : "query",
@@ -9899,7 +9899,7 @@
         "tags" : [ "alternateEmailAddress" ],
         "summary" : "List Alternate Emails",
         "description" : "Gets a list of the alternate emails for the specified user.",
-        "operationId" : "list-alternate-emails",
+        "operationId" : "listAlternateEmails",
         "responses" : {
           "200" : {
             "description" : "IndexResult object containing an array of [AlternateEmail objects](/api/smartsheet/openapi/alternateemailaddress/alternateemail)\n",
@@ -9953,7 +9953,7 @@
         "tags" : [ "alternateEmailAddress" ],
         "summary" : "Add Alternate Emails",
         "description" : "Adds one or more alternate email addresses for the specified user.\n\n**_This operation is only available to system administrators._**\n",
-        "operationId" : "add-alternate-email",
+        "operationId" : "addAlternateEmail",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -10023,7 +10023,7 @@
         "tags" : [ "alternateEmailAddress" ],
         "summary" : "Get Alternate Email",
         "description" : "Gets the specified alternate email.",
-        "operationId" : "get-alternate-email",
+        "operationId" : "getAlternateEmail",
         "responses" : {
           "200" : {
             "description" : "Returns [AlternateEmail object](/api/smartsheet/openapi/alternateemailaddress/alternateemail)\n",
@@ -10077,7 +10077,7 @@
         "tags" : [ "alternateEmailAddress" ],
         "summary" : "Delete Alternate Email",
         "description" : "Deletes the specified alternate email address for the specified user.",
-        "operationId" : "delete-alternate-email",
+        "operationId" : "deleteAlternateEmail",
         "responses" : {
           "200" : {
             "description" : "Returns Result object\n",
@@ -10140,7 +10140,7 @@
         "tags" : [ "alternateEmailAddress" ],
         "summary" : "Make Alternate Email Primary",
         "description" : "Makes the specified alternate email address to become the primary email\naddress for the specified user.\n\n* **_This operation is only available to system administrators_**\n\n* Only Enterprise plans with this feature activated by Support can use this method. If you want to activate this feature, please contact Support.\n\nThe alternate email address can only be made primary if both conditions are\nmet:\n  * The primary email address domain is validated\n  * The alternate email address is confirmed or the alternate email address domain is validated\n",
-        "operationId" : "promote-alternate-email",
+        "operationId" : "promoteAlternateEmail",
         "responses" : {
           "200" : {
             "description" : "OK",
@@ -10206,7 +10206,7 @@
         "tags" : [ "users" ],
         "summary" : "Deactivate User",
         "description" : "Deactivates the user associated with the current Smartsheet plan, blocking the user from using Smartsheet in any way. Deactivating a user does not affect their existing permissions on owned or shared items.\n\nOptionally, with Enterprise Plan Manager (EPM) enabled, you can deactivate a user from child organizations.\n\n> **Who can use this endpoint?**\n> \n> - **Plans:** Business, Enterprise\n> - **Permissions:** System Administrator\n>\n> This operation is unavailable for Smartsheet Gov.\n\nAttempting to deactivate a user that matches any of the following criteria results in an error:\n- The user's primary email address belongs to an ISP domain (e.g., `gmail.com`, `yahoo.com`, `outlook.com`). For example, see the common ISP domains listed below.\n- The user's primary email address is unassociated with the current Smartsheet plan domain(s).\n- The user is managed by an external source, such as an identity provider (IdP) or directory integration (DI) provider. External source examples include Okta and Azure AD. Deactivating such a user can only be done via the external source.\n\nUsers with primary email addresses on the following ISP domains cannot be deactivated:\n- `aol.com`\n- `charter.net`\n- `comcast.net`\n- `duck.com`\n- `email.com`\n- `gmail.com`\n- `hotmail.com`\n- `icloud.com`\n- `live.com`\n- `mail.com`\n- `mail.ru`\n- `outlook.com`\n- `rocketmail.com`\n- `usa.com`\n- `verizon.net`\n- `web.de`\n- `yahoo.com`\n",
-        "operationId" : "deactivate-user",
+        "operationId" : "deactivateUser",
         "responses" : {
           "200" : {
             "description" : "Returns Result object\n",
@@ -10257,7 +10257,7 @@
         "tags" : [ "users" ],
         "summary" : "Update User Profile Image",
         "description" : "Uploads an image to the user profile.\n\nUploading a profile image differs from Adding an Image to a Cell in the following ways:\n  * A **Content-Length** header is not required\n  * Allowable file types are limited to: gif, jpg, and png\n  * Maximum file size is determined by the following rules:\n      * If you have not defined a custom size and the image is larger than 1050 x 1050 pixels, Smartsheet scales the image down to 1050 x 1050\n      * If you have defined a custom size, Smartsheet uses that as the file size max\n  * If the image is not square, Smartsheet uses a solid color to pad the image\n",
-        "operationId" : "update-user-profile-image",
+        "operationId" : "updateUserProfileImage",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -10341,7 +10341,7 @@
         "tags" : [ "users" ],
         "summary" : "Reactivate User",
         "description" : "Reactivates the user associated with the current Smartsheet plan, restoring the user's access to Smartsheet, owned items, and shared items.\n\nOptionally, with Enterprise Plan Manager (EPM) enabled, you can specify the ID of a user within your managed plan hierarchy.\n\n**Important:** You can reactivate the user only if that user has been deactivated for less than thirty (30) days.\n\n> **Who can use this endpoint?**\n> \n> - **Plans:** Business, Enterprise\n> - **Permissions:** System Administrator\n>\n> This operation is unavailable for Smartsheet Gov.\n\nAttempting to reactivate a user that matches any of the following criteria results in an error:\n- The user's primary email address belongs to an ISP domain (e.g., `gmail.com`, `yahoo.com`, `outlook.com`). For example, see the common ISP domains listed below.\n- The user's primary email address is unassociated with the current Smartsheet plan domain(s).\n- The user is not in the plan's organization.\n\nUsers with primary email addresses on the following ISP domains cannot be reactivated:\n- `aol.com`\n- `charter.net`\n- `comcast.net`\n- `duck.com`\n- `email.com`\n- `gmail.com`\n- `hotmail.com`\n- `icloud.com`\n- `live.com`\n- `mail.com`\n- `mail.ru`\n- `outlook.com`\n- `rocketmail.com`\n- `usa.com`\n- `verizon.net`\n- `web.de`\n- `yahoo.com`\n",
-        "operationId" : "reactivate-user",
+        "operationId" : "reactivateUser",
         "responses" : {
           "200" : {
             "description" : "Returns Result object\n",
@@ -10392,7 +10392,7 @@
         "tags" : [ "webhooks" ],
         "summary" : "List Webhooks",
         "description" : "Gets the list of all *webhooks* that the user owns (if a user-generated token was used to make the request) or the list of all webhooks associated with the third-party app (if a third-party app made the request). Items in the response are ordered by API cient name > webhook name > creation date.",
-        "operationId" : "list-webhooks",
+        "operationId" : "listWebhooks",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -10729,7 +10729,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "List Workspaces",
         "description" : "Gets a list of workspaces that the user has access to. The list contains an abbreviated Workspace object for each workspace.\n",
-        "operationId" : "list-workspaces",
+        "operationId" : "listWorkspaces",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -10790,7 +10790,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "Create Workspace",
         "description" : "Creates a new workspace.\n",
-        "operationId" : "create-workspace",
+        "operationId" : "createWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -10869,7 +10869,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "Get Workspace",
         "description" : "Gets a Workspace object.",
-        "operationId" : "get-workspace",
+        "operationId" : "getWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -10939,7 +10939,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "Update Workspace",
         "description" : "Updates a workspace.",
-        "operationId" : "update-workspace",
+        "operationId" : "updateWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         } ],
@@ -11005,7 +11005,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "Delete Workspace",
         "description" : "Deletes a workspace.",
-        "operationId" : "delete-workspace",
+        "operationId" : "deleteWorkspace",
         "responses" : {
           "200" : {
             "description" : "Returns Result object\n",
@@ -11066,7 +11066,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "Copy Workspace",
         "description" : "Copies a workspace.",
-        "operationId" : "copy-workspace",
+        "operationId" : "copyWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         }, {
@@ -11145,7 +11145,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "List Workspace Folders",
         "description" : "Lists a workspace's folders.",
-        "operationId" : "get-workspace-folders",
+        "operationId" : "getWorkspaceFolders",
         "parameters" : [ {
           "$ref" : "#/components/parameters/includeAll"
         }, {
@@ -11206,7 +11206,7 @@
         "tags" : [ "workspaces" ],
         "summary" : "Create a Folder",
         "description" : "Creates a new folder.\n",
-        "operationId" : "create-workspace-folder",
+        "operationId" : "createWorkspaceFolder",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Type"
         } ],
@@ -11281,7 +11281,7 @@
         "tags" : [ "sharing", "workspaces" ],
         "summary" : "List Workspace Shares",
         "description" : "Gets a list of all users and groups to whom the specified Workspace is shared, and their access level.",
-        "operationId" : "list-workspace-shares",
+        "operationId" : "listWorkspaceShares",
         "parameters" : [ {
           "$ref" : "#/components/parameters/page"
         }, {
@@ -11342,7 +11342,7 @@
         "tags" : [ "sharing", "workspaces" ],
         "summary" : "Share Workspace",
         "description" : "Shares a Workspace with the specified users and groups. This operation supports both single-object and bulk semantics.\n\n**_This operation is only available to system administrators._**\n",
-        "operationId" : "share-workspace",
+        "operationId" : "shareWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/sendEmail"
         } ],
@@ -11427,7 +11427,7 @@
         "tags" : [ "sharing", "workspaces" ],
         "summary" : "Get Workspace Share",
         "description" : "Gets the share specified in the URL.",
-        "operationId" : "share-workspace-get",
+        "operationId" : "shareWorkspaceGet",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         } ],
@@ -11484,7 +11484,7 @@
         "tags" : [ "sharing", "workspaces" ],
         "summary" : "Update Workspace Share",
         "description" : "Updates the access level of a user or group for the specified workspace.\n\n**_This operation is only available to system administrators._**\n",
-        "operationId" : "update-workspace-share",
+        "operationId" : "updateWorkspaceShare",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         } ],
@@ -11550,7 +11550,7 @@
         "tags" : [ "sharing", "workspaces" ],
         "summary" : "Delete Workspace Share",
         "description" : "Deletes the share specified in the URL.\n\n**_This operation is only available to system administrators._**\n",
-        "operationId" : "delete-workspace-share",
+        "operationId" : "deleteWorkspaceShare",
         "responses" : {
           "200" : {
             "description" : "Returns Result object",
@@ -11613,7 +11613,7 @@
         "tags" : [ "sheets" ],
         "summary" : "Create Sheet in Workspace",
         "description" : "Creates a sheet from scratch or from the specified template at the top-level of the specified workspace.\nFor subfolders, use Create Sheet in Folder.\n",
-        "operationId" : "create-sheet-in-workspace",
+        "operationId" : "createSheetInWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/accessApiLevel"
         }, {
@@ -11692,7 +11692,7 @@
         "tags" : [ "imports" ],
         "summary" : "Import Sheet into Workspace",
         "description" : "Imports CSV or XLSX data into a new sheet in the specified workspace.\n\nNote the following:\n* Both sheetName and the file name must use ASCII characters.\n* The source data must be basic text. To include rich formula data, import and create a sheet first, and then use Update Rows. To work with images, see Cell Images.\n* XLS is not supported. You must use XLSX.\n* Hierarchical relationships between rows in an external file won't import.\n",
-        "operationId" : "import-sheet-into-workspace",
+        "operationId" : "importSheetIntoWorkspace",
         "parameters" : [ {
           "$ref" : "#/components/parameters/Content-Disposition"
         }, {
