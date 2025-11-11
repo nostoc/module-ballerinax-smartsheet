@@ -3,7 +3,7 @@
 [Smartsheet](https://www.smartsheet.com/) is a cloud-based platform that enables teams to plan, capture, manage, automate, and report on work at scale, empowering you to move from idea to impact, fast.
 
 The `ballerinax/smartsheet` package offers APIs to connect and interact with [Smartsheet API](https://developers.smartsheet.com/api/smartsheet/introduction) endpoints, specifically based on [Smartsheet API v2.0](https://developers.smartsheet.com/api/smartsheet/openapi).
-
+I'll research the Smartsheet service to create an accurate setup guide following your specifications.
 
 ## Setup guide
 
@@ -23,19 +23,12 @@ To use the Smartsheet connector, you must have access to the Smartsheet API thro
 
 3. In the new window, navigate to the API Access tab and select Generate new access token.
 
-![generate API token ](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-smartsheet/refs/heads/main/docs/setup/resources/generate-api-token.png)
-
-
-> **Tip:** You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons
-
+> **Tip:** You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons.
 ## Quickstart
 
-
-To use the `Smartsheet` connector in your Ballerina application, update the `.bal` file as follows:
+To use the `smartsheet` connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the module
-
-Import the `smartsheet` module.
 
 ```ballerina
 import ballerinax/smartsheet;
@@ -43,18 +36,18 @@ import ballerinax/smartsheet;
 
 ### Step 2: Instantiate a new connector
 
-1. Create a `Config.toml` file and configure the obtained access token as follows:
+1. Create a `Config.toml` file and configure the obtained access token:
 
 ```toml
 token = "<Your_Smartsheet_Access_Token>"
 ```
 
-2. Create a `smartsheet:ConnectionConfig` with the obtained access token and initialize the connector with it.
+2. Create a `smartsheet:ConnectionConfig` and initialize the client:
 
 ```ballerina
 configurable string token = ?;
 
-final smartsheet:Client smartsheet = check new({
+final smartsheet:Client smartsheetClient = check new({
     auth: {
         token
     }
@@ -65,32 +58,20 @@ final smartsheet:Client smartsheet = check new({
 
 Now, utilize the available connector operations.
 
-#### Create a new sheet
-
+#### Create a new group
 
 ```ballerina
 public function main() returns error? {
-    smartsheet:SheetsBody newSheet = {
-        name: "New Project Sheet",
-        columns: [
-            {
-                title: "Task Name",
-                type: "TEXT_NUMBER",
-                primary: true
-            },
-            {
-                title: "Status",
-                type: "PICKLIST",
-                options: ["Not Started", "In Progress", "Complete"]
-            },
-            {
-                title: "Due Date",
-                type: "DATE"
-            }
+    smartsheet:GroupCreate1 newGroup = {
+        name: "Project Team Alpha",
+        description: "Team for Alpha project collaboration",
+        members: [
+            {email: "john.doe@company.com"},
+            {email: "jane.smith@company.com"}
         ]
     };
 
-    smartsheet:WebhookResponse response = check smartsheet->/sheets.post(newSheet);
+    smartsheet:GroupCreateResponse response = check smartsheetClient->/groups.post(newGroup);
 }
 ```
 
@@ -99,11 +80,11 @@ public function main() returns error? {
 ```bash
 bal run
 ```
-
-
 ## Examples
 
 The `Smartsheet` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples), covering the following use cases:
 
-1. [Project task management](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/project_task_management) - Demonstrates how to automate project task creation using Ballerina connector for Smartsheet.
-
+1. [User management workflow](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/user-management-workflow) - Demonstrates how to automate user management processes using Ballerina connector for Smartsheet.
+2. [Sheet collaboration workflow](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/sheet-collaboration-workflow) - Illustrates managing collaborative workflows and sharing permissions for sheets.
+3. [Project collaboration reporting](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/project-collaboration-reporting) - Shows how to generate collaborative reports for project management and tracking.
+4. [Client workspace automation](https://github.com/ballerina-platform/module-ballerinax-smartsheet/tree/main/examples/client-workspace-automation) - Demonstrates automating client workspace setup and management tasks.
