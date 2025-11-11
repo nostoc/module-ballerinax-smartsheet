@@ -30,7 +30,8 @@ To use the Smartsheet connector, you must have access to the Smartsheet API thro
 
 ## Quickstart
 
-To use the Smartsheet connector in your Ballerina application, update the `.bal` file as follows:
+
+To use the `Smartsheet` connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the module
 
