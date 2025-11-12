@@ -22,9 +22,9 @@ plugins {
     id 'io.ballerina.plugin'
 }
 
-description = 'Smartsheet - Ballerina'
+description = 'sap.commerce - Ballerina'
 
-def packageName = "smartsheet"
+def packageName = "sap.commerce"
 def packageOrg = "ballerinax"
 def tomlVersion = stripBallerinaExtensionVersion("${project.version}")
 def ballerinaTomlFilePlaceHolder = new File("${project.rootDir}/build-config/resources/Ballerina.toml")

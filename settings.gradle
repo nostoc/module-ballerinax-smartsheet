@@ -27,11 +27,11 @@ plugins {
     id "com.gradle.enterprise" version "3.2"
 }
 
-rootProject.name = 'module-ballerinax-smartsheet'
+rootProject.name = 'module-ballerinax-sap.commerce'
 
-include ':smartsheet-ballerina'
+include ':sap.commerce-ballerina'
 
-project(':smartsheet-ballerina').projectDir = file("ballerina")
+project(':sap.commerce-ballerina').projectDir = file("ballerina")
 
 gradleEnterprise {
     buildScan {
