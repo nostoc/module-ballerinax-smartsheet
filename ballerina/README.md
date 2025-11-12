@@ -1,62 +1,62 @@
 ## Overview
 
-[sap.commerce](https://www.sap.commerce.com/) is a cloud-based platform that enables teams to plan, capture, manage, automate, and report on work at scale, empowering you to move from idea to impact, fast.
+[SAP Commerce](https://www.sap.com/products/crm/commerce.html) is a comprehensive e-commerce platform that enables businesses to deliver personalized, omnichannel customer experiences across all touchpoints, from B2B and B2C commerce to mobile and social channels.
 
-The `ballerinax/sap.commerce` package offers APIs to connect and interact with [sap.commerce API](https://developers.sap.commerce.com/api/sap.commerce/introduction) endpoints, specifically based on [sap.commerce API v2.0](https://developers.sap.commerce.com/api/sap.commerce/openapi).
-
-
+The `ballerinax/sap.commerce` package offers APIs to connect and interact with [SAP Commerce API](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0185aa721ea64c8fb7b1e9eff4c1c0e9/8c91f3a486691014b085fb1c153a4a7b.html) endpoints, specifically based on [SAP Commerce REST API v2](https://help.sap.com/docs/SAP_COMMERCE_CLOUD_PUBLIC_CLOUD/0185aa721ea64c8fb7b1e9eff4c1c0e9/715c5d01865c4e4dbe1f5db7bd5c2677.html).
 ## Setup guide
 
-To use the sap.commerce connector, you must have access to the sap.commerce API through a [sap.commerce developer account](https://developers.sap.commerce.com/) and obtain an API access token. If you do not have a sap.commerce account, you can sign up for one [here](https://www.sap.commerce.com/try-it).
+To use the SAP Commerce connector, you must have access to the SAP Commerce Cloud API through an [SAP Commerce Cloud developer account](`https://developers.sap.com/topics/sap-commerce-cloud.html`) and obtain an API access token. If you do not have an SAP Commerce Cloud account, you can sign up for one [here](`https://www.sap.com/products/crm/commerce-cloud.html`).
 
-### Step 1: Create a sap.commerce Account
+### Step 1: Create an SAP Commerce Cloud Account
 
-1. Navigate to the [sap.commerce website](https://www.sap.commerce.com/) and sign up for an account or log in if you already have one.
+1. Navigate to the [SAP Commerce Cloud website](`https://www.sap.com/products/crm/commerce-cloud.html`) and sign up for an account or log in if you already have one.
 
-2. Ensure you have a Business or Enterprise plan, as the sap.commerce API is restricted to users on these plans.
+2. Ensure you have a valid SAP Commerce Cloud subscription, as the API access requires an active Commerce Cloud environment with appropriate licensing.
 
 ### Step 2: Generate an API Access Token
 
-1. Log in to your sap.commerce account.
+1. Log in to your SAP Commerce Cloud Administration Console.
 
-2. On the left Navigation Bar at the bottom, select Account (your profile image), then Personal Settings.
+2. Navigate to System → API → OAuth2 and select the OAuth2 tab.
 
-3. In the new window, navigate to the API Access tab and select Generate new access token.
+3. Create a new OAuth2 client by clicking "Create OAuth2 Client" and configure the client credentials with the required scopes for your integration.
 
-![generate API token ](https://raw.githubusercontent.com/ballerina-platform/module-ballerinax-sap.commerce/refs/heads/main/docs/setup/resources/generate-api-token.png)
+4. Generate the access token using the client credentials flow with your OAuth2 client ID and secret.
 
-
-> **Tip:** You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons
-
+> **Tip:** You must copy and store this key somewhere safe. It won't be visible again in your account settings for security reasons.
 ## Quickstart
 
-
-To use the `sap.commerce` connector in your Ballerina application, update the `.bal` file as follows:
+To use the `SAP Commerce` connector in your Ballerina application, update the `.bal` file as follows:
 
 ### Step 1: Import the module
 
-Import the `sap.commerce` module.
-
 ```ballerina
-import ballerinax/sap.commerce;
+import ballerina/oauth2;
+import ballerinax/sap.commerce as sapcommerce;
 ```
 
 ### Step 2: Instantiate a new connector
 
-1. Create a `Config.toml` file and configure the obtained access token as follows:
+1. Create a `Config.toml` file with your credentials:
 
 ```toml
-token = "<Your_sap.commerce_Access_Token>"
+clientId = "<Your_Client_Id>"
+clientSecret = "<Your_Client_Secret>"
+refreshToken = "<Your_Refresh_Token>"
 ```
 
-2. Create a `sap.commerce:ConnectionConfig` with the obtained access token and initialize the connector with it.
+2. Create a `sapcommerce:ConnectionConfig` and initialize the client:
 
 ```ballerina
-configurable string token = ?;
+configurable string clientId = ?;
+configurable string clientSecret = ?;
+configurable string refreshToken = ?;
 
-final sap.commerce:Client sap.commerce = check new({
+final sapcommerce:Client sapCommerceClient = check new({
     auth: {
-        token
+        clientId,
+        clientSecret,
+        refreshToken
     }
 });
 ```
@@ -65,32 +65,22 @@ final sap.commerce:Client sap.commerce = check new({
 
 Now, utilize the available connector operations.
 
-#### Create a new sheet
-
+#### Create a new cost center
 
 ```ballerina
 public function main() returns error? {
-    sap.commerce:SheetsBody newSheet = {
-        name: "New Project Sheet",
-        columns: [
-            {
-                title: "Task Name",
-                type: "TEXT_NUMBER",
-                primary: true
-            },
-            {
-                title: "Status",
-                type: "PICKLIST",
-                options: ["Not Started", "In Progress", "Complete"]
-            },
-            {
-                title: "Due Date",
-                type: "DATE"
-            }
-        ]
+    sapcommerce:B2BCostCenter newCostCenter = {
+        code: "CC-001",
+        name: "Marketing Department",
+        activeFlag: true,
+        currency: {
+            isocode: "USD",
+            name: "US Dollar",
+            active: true
+        }
     };
 
-    sap.commerce:WebhookResponse response = check sap.commerce->/sheets.post(newSheet);
+    sapcommerce:B2BCostCenter response = check sapCommerceClient->createCostCenter("electronics", newCostCenter);
 }
 ```
 
@@ -99,11 +89,11 @@ public function main() returns error? {
 ```bash
 bal run
 ```
-
-
 ## Examples
 
 The `sap.commerce` connector provides practical examples illustrating usage in various scenarios. Explore these [examples](https://github.com/ballerina-platform/module-ballerinax-sap.commerce/tree/main/examples), covering the following use cases:
 
-1. [Project task management](https://github.com/ballerina-platform/module-ballerinax-sap.commerce/tree/main/examples/project_task_management) - Demonstrates how to automate project task creation using Ballerina connector for sap.commerce.
-
+1. [B2b order management](https://github.com/ballerina-platform/module-ballerinax-sap.commerce/tree/main/examples/b2b-order-management) - Demonstrates how to manage business-to-business orders using Ballerina connector for SAP Commerce.
+2. [Product support ticketing](https://github.com/ballerina-platform/module-ballerinax-sap.commerce/tree/main/examples/product-support-ticketing) - Illustrates creating and managing product support tickets and customer service workflows.
+3. [Catalog navigation workflow](https://github.com/ballerina-platform/module-ballerinax-sap.commerce/tree/main/examples/catalog-navigation-workflow) - Shows how to navigate and interact with product catalogs and category structures.
+4. [Subsidiary organizational setup](https://github.com/ballerina-platform/module-ballerinax-sap.commerce/tree/main/examples/subsidiary-organizational-setup) - Demonstrates setting up organizational structures for subsidiary companies and business units.
